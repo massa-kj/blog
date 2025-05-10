@@ -18,36 +18,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out the source
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Install Node 24 and turn on Corepack with pnpm-aware caching
       - name: Setup Node 24
         uses: actions/setup-node@v4
         with:
           node-version: 24        # latest LTS (2025-05)
-          cache: pnpm             # cache ~/.pnpm-store automatically
 
-      # 3. Activate pnpm (Corepack ships with Node ≥16 but is disabled by default)
-      - name: Enable pnpm via Corepack
-        run: corepack enable
+      - name: Enable pnpm and automatic caching
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10.10.0            # matches packageManager field in package.json
+          cache: true                 # caches ~/.pnpm-store
+          run_install: false          # run manually
 
-      # 4. Install deps with a lock-file guarantee
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 5. Build the static site
       - name: Build site
         run: pnpm run build
 
-      # 6. Package the generated files for Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-      # 7. Deploy
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
 
