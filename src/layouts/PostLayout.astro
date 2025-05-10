@@ -1,0 +1,24 @@
+---
+const { frontmatter, children } = Astro.props;
+const { title, date, tags, summary } = frontmatter;
+console.log(title, date, tags, summary)
+---
+
+<article class="prose mx-auto px-4 py-8 max-w-3xl">
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold mb-2">{title}</h1>
+    <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
+    {tags && (
+      <ul class="flex flex-wrap gap-2 mt-2">
+        {tags.map(tag => (
+          <li class="text-xs bg-gray-200 rounded px-2 py-1">{tag}</li>
+        ))}
+      </ul>
+    )}
+  </header>
+
+  <section class="markdown-body">
+    {children}
+  </section>
+</article>
+

@@ -4,7 +4,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
-const BASE_PATH = '/blog';
+const BASE_PATH = '/';
 
 export default defineConfig({
 	site: 'https://compQx7.github.io',
