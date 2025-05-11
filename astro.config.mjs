@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 import tailwindcss from '@tailwindcss/vite';
 
-const BASE_PATH = '/';
+const BASE_PATH = '/blog';
 
 export default defineConfig({
   site: 'https://compQx7.github.io',
