@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 const BASE_PATH = '/';
@@ -12,7 +12,11 @@ export default defineConfig({
 	output: 'static', // hybrid
 	integrations: [
 		react(),
-		tailwind(),
 		sitemap({}),
 	],
+	vite: {
+		plugins: [
+			tailwindcss(),
+		],
+	},
 });
