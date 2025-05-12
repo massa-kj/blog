@@ -1,7 +1,15 @@
 ---
-const { frontmatter, children } = Astro.props;
+import { getCollection } from 'astro:content';
+import { PrevNextNav } from '../components/common/PrevNextNav';
+
+const { frontmatter, slug } = Astro.props;
 const { title, date, tags, summary } = frontmatter;
-console.log(title, date, tags, summary)
+
+const allPosts = (await getCollection('articles')).map((p) => ({
+  slug: p.slug,
+  title: p.data.title,
+  date: new Date(p.data.date),
+})).sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
 <article class="prose mx-auto px-4 py-8 max-w-3xl">
@@ -18,7 +26,8 @@ console.log(title, date, tags, summary)
   </header>
 
   <section class="markdown-body">
-    {children}
+	<slot />
+    <PrevNextNav posts={allPosts} currentSlug={slug} />
   </section>
 </article>
 
