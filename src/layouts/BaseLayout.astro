@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { baseUrl } from '../utils/share'
+
 const { title = "My Site" } = Astro.props;
 ---
 
@@ -12,7 +14,9 @@ const { title = "My Site" } = Astro.props;
   </head>
   <body class="font-sans bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
     <header class="p-4 shadow bg-white dark:bg-gray-800">
-      <h1 class="text-xl font-bold">My Site</h1>
+      <a href={baseUrl} class="text-xl font-bold hover:underline">
+        My Site
+      </a>
     </header>
     <main class="p-4">
       <slot />
