@@ -1,0 +1,47 @@
+---
+import { baseUrl } from '../utils/share'
+---
+
+<header class="fixed inset-x-0 top-0 z-10 flex h-16 items-center justify-between bg-gray-700 px-4 shadow transition-transform duration-300 peer-checked:translate-x-[70vw] md:pl-[22rem] md:peer-checked:translate-x-0">
+  <!-- (Mobile) left-side hamburger -->
+  <div class="flex items-center md:hidden">
+    <label for="menu-toggle" class="cursor-pointer p-2 focus:outline-none focus:ring">
+      <!-- hamburger icon -->
+      <svg class="h-6 w-6 text-gray-100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </label>
+    <span class="ml-2 text-lg font-semibold">My&nbsp;Blog</span>
+  </div>
+
+  <!-- (Desktop) breadcrumbs & search -->
+  <div class="hidden w-full items-center justify-between md:flex">
+    <!-- dummy breadcrumbs -->
+    <nav aria-label="Breadcrumb">
+      <ol class="flex space-x-2 text-sm text-gray-400">
+        <li><a href="#" class="hover:text-gray-200">Home</a></li>
+        <li>/</li>
+        <li><a href="#" class="hover:text-gray-200">Category</a></li>
+        <li>/</li>
+        <li class="text-gray-200">Article</li>
+      </ol>
+    </nav>
+
+    <!-- search box -->
+    <div class="relative">
+      <input type="text" placeholder="Search…" class="w-52 rounded bg-gray-700 py-1 pl-8 pr-2 text-sm text-gray-100 placeholder-gray-400 focus:outline-none focus:ring focus:ring-indigo-500/50" />
+      <svg class="pointer-events-none absolute left-2 top-1.5 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- (Mobile) right-side search button -->
+  <button class="p-2 md:hidden" aria-label="search">
+    <svg class="h-6 w-6 text-gray-100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  </button>
+</header>
