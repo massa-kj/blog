@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { PrevNextNav } from '../components/common/PrevNextNav';
+import PostNavigation from '../components/astro/PostNavigation.astro';
 
 const { frontmatter, slug } = Astro.props;
 const { title, date, tags, summary } = frontmatter;
@@ -10,11 +11,16 @@ const allPosts = (await getCollection('articles')).map((p) => ({
   title: p.data.title,
   date: new Date(p.data.date),
 })).sort((a, b) => b.date.getTime() - a.date.getTime());
+
+const currentIndex = allPosts.findIndex(post => post.slug === slug);
+const current = allPosts[currentIndex];
+const prev = allPosts[currentIndex + 1];
+const next = allPosts[currentIndex - 1];
 ---
 
 <article class="prose mx-auto px-4 py-8 max-w-3xl">
   <header class="mb-6">
-    <h2 class="text-3xl font-bold mb-2">{title}</h2>
+    <h2 class="text-3xl font-bold mb-2 break-words">{title}</h2>
     <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
     {tags && (
       <ul class="flex flex-wrap gap-2 mt-2">
@@ -27,7 +33,11 @@ const allPosts = (await getCollection('articles')).map((p) => ({
 
   <section class="markdown-body">
 	<slot />
-    <PrevNextNav posts={allPosts} currentSlug={slug} />
+    <!-- <PrevNextNav posts={allPosts} currentSlug={slug} /> -->
+    <PostNavigation 
+      prev={prev ? { slug: prev.slug, title: prev.title } : undefined}
+      next={next ? { slug: next.slug, title: next.title } : undefined}
+    />
   </section>
 </article>
 
