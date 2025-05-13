@@ -1,0 +1,38 @@
+---
+import { baseUrl } from '../../utils/share'
+
+interface PostLink {
+  slug: string;
+  title: string;
+}
+
+const { prev, next }: { prev?: PostLink; next?: PostLink } = Astro.props;
+---
+
+<div class="mt-12 grid grid-cols-2 gap-px rounded-md overflow-hidden border border-gray-700">
+  <!-- OLDER -->
+  <a
+    href={prev ? `${baseUrl}articles/${prev.slug}` : '#'}
+    class={`group flex flex-col justify-center bg-gray-900 p-4 transition ${
+      prev ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
+    }`}
+  >
+    <span class="text-xs text-gray-500 group-hover:text-gray-200">OLDER</span>
+    <span class="mt-1 text-sm font-medium leading-snug truncate">
+      {prev?.title || '-'}
+    </span>
+  </a>
+
+  <!-- NEWER -->
+  <a
+    href={next ? `${baseUrl}articles/${next.slug}` : '#'}
+    class={`group flex flex-col justify-center bg-gray-900 p-4 transition ${
+      next ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
+    } text-right`}
+  >
+    <span class="text-xs text-gray-500 group-hover:text-gray-200">NEWER</span>
+    <span class="mt-1 text-sm font-medium leading-snug truncate">
+      {next?.title || '-'}
+    </span>
+  </a>
+</div>
