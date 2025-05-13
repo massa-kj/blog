@@ -1,3 +1,13 @@
-# greet
+---
+title: About Me
+description: My background, goals, and the tech that excites me.
+---
 
-Hi everyone.
+## Hello 👋
+
+test
+
+### h3 header
+
+test
+
