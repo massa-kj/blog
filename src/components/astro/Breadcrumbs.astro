@@ -1,0 +1,48 @@
+---
+import { baseUrl } from '../../utils/share'
+const { path }: { path: string } = Astro.props;
+
+// TODO: share & fix sidebar
+const LABEL_MAP = {
+  'blog': 'Home',
+  'articles': 'Articles',
+  'cheet-sheets': 'Cheat Sheets',
+  'about': 'About',
+};
+
+// Split a path to generate a breadcrumb array
+const parts = path
+  .split('/')
+  // remove empty item
+  .filter(Boolean)
+  .map((part, index, array) => {
+    const href = '/' + array.slice(0, index + 1).join('/');
+    return {
+      label: LABEL_MAP[part] ?? part,
+	  href: index < array.length - 1 ? `${href}/` : undefined,  // No link at the end
+    };
+  })
+  // home links to articles
+  .map((item) => {
+    if (item.label === 'Home') {
+      item.href = `${baseUrl}articles/`
+    }
+	return item
+  });
+---
+
+<nav class="text-sm text-gray-400 mb-4" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap gap-1">
+    {parts.map((crumb, i) => (
+      <li class="flex items-center gap-1" key={i}>
+        {i > 0 && <span>&gt;</span>}
+        {crumb.href ? (
+          <a href={crumb.href} class="hover:text-indigo-400 underline">{crumb.label}</a>
+        ) : (
+          <span class="text-gray-300">{crumb.label}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+

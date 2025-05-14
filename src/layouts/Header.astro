@@ -1,5 +1,8 @@
 ---
 import { baseUrl } from '../utils/share'
+import Breadcrumbs from '../components/astro/Breadcrumbs.astro';
+
+const path = Astro.url.pathname;
 ---
 
 <header class="fixed inset-x-0 top-0 z-10 flex h-16 items-center justify-between bg-gray-700 px-4 shadow transition-transform duration-300 peer-checked:translate-x-[70vw] md:pl-[22rem] md:peer-checked:translate-x-0">
@@ -17,15 +20,16 @@ import { baseUrl } from '../utils/share'
   <!-- (Desktop) breadcrumbs & search -->
   <div class="hidden w-full items-center justify-between md:flex">
     <!-- dummy breadcrumbs -->
-    <nav aria-label="Breadcrumb">
-      <ol class="flex space-x-2 text-sm text-gray-400">
-        <li><a href="#" class="hover:text-gray-200">Home</a></li>
-        <li>/</li>
-        <li><a href="#" class="hover:text-gray-200">Category</a></li>
-        <li>/</li>
-        <li class="text-gray-200">Article</li>
-      </ol>
-    </nav>
+    <Breadcrumbs path={path} />
+    <!-- <nav aria-label="Breadcrumb"> -->
+    <!--   <ol class="flex space-x-2 text-sm text-gray-400"> -->
+    <!--     <li><a href="#" class="hover:text-gray-200">Home</a></li> -->
+    <!--     <li>/</li> -->
+    <!--     <li><a href="#" class="hover:text-gray-200">Category</a></li> -->
+    <!--     <li>/</li> -->
+    <!--     <li class="text-gray-200">Article</li> -->
+    <!--   </ol> -->
+    <!-- </nav> -->
 
     <!-- search box -->
     <div class="relative">
