@@ -2,24 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/astro/ArticleCard.astro';
 import { getCollection } from 'astro:content';
-import { baseUrl } from '../utils/share'
 
 const articles = await getCollection('articles');
 ---
 
-<!-- <ul class="space-y-6"> -->
-<section class="flex flex-col gap-6">
-  {articles
-    .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-    .map(({ slug, data }) => (
-      <ArticleCard 
-        key={slug}
-        title={data.title}
-        description={data.summary}
-        pubDate={data.date}
-        slug={slug}
-      />
-    ))}
-<!-- </ul> -->
-</section>
+<BaseLayout>
+  <section class="flex flex-col gap-6">
+    {articles
+      .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+      .map(({ slug, data }) => (
+        <ArticleCard 
+          key={slug}
+          title={data.title}
+          description={data.summary}
+          pubDate={data.date}
+          slug={slug}
+        />
+      ))}
+  </section>
+</BaseLayout>
 

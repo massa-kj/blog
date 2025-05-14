@@ -1,8 +1,13 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Articles from './articles.astro';
+import { baseUrl } from '../utils/share'
 ---
 
-<BaseLayout>
-  <Articles />
-</BaseLayout>
+<html lang="en">
+  <head>
+    <meta http-equiv="refresh" content=`0; url=${baseUrl}articles` />
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href=`${baseUrl}articles`>...</a></p>
+  </body>
+</html>
