@@ -5,4 +5,4 @@ tags: ["Astro", "Blog"]
 summary: "Astro x Markdown"
 ---
 
-# Astro × Markdown
+## Astro × Markdown

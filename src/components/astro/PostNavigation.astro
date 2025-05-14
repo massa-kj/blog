@@ -18,7 +18,7 @@ const { prev, next }: { prev?: PostLink; next?: PostLink } = Astro.props;
     }`}
   >
     <span class="text-xs text-gray-500 group-hover:text-gray-200">OLDER</span>
-    <span class="mt-1 text-sm font-medium leading-snug truncate">
+    <span class="mt-1 text-sm font-medium leading-snug break-words">
       {prev?.title || '-'}
     </span>
   </a>
@@ -31,7 +31,7 @@ const { prev, next }: { prev?: PostLink; next?: PostLink } = Astro.props;
     } text-right`}
   >
     <span class="text-xs text-gray-500 group-hover:text-gray-200">NEWER</span>
-    <span class="mt-1 text-sm font-medium leading-snug truncate">
+    <span class="mt-1 text-sm font-medium leading-snug break-words">
       {next?.title || '-'}
     </span>
   </a>
