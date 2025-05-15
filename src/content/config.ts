@@ -9,6 +9,14 @@ const articles = defineCollection({
   }),
 });
 
+const cheatsheets = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
 export const collections = {
   articles,
+  cheatsheets,
 };

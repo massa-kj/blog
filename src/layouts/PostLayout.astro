@@ -3,10 +3,10 @@ import { getCollection } from 'astro:content';
 import PostNavigation from '../components/astro/PostNavigation.astro';
 import Prose from '../layouts/Prose.astro'
 
-const { frontmatter, slug } = Astro.props;
+const { frontmatter, collection, slug } = Astro.props;
 const { title, date, tags, summary } = frontmatter;
 
-const allPosts = (await getCollection('articles')).map((p) => ({
+const allPosts = (await getCollection(collection)).map((p) => ({
   slug: p.slug,
   title: p.data.title,
   date: new Date(p.data.date),
@@ -36,6 +36,7 @@ const next = allPosts[currentIndex - 1];
       <slot />
 	</Prose>
     <PostNavigation 
+      collection={collection}
       prev={prev ? { slug: prev.slug, title: prev.title } : undefined}
       next={next ? { slug: next.slug, title: next.title } : undefined}
     />

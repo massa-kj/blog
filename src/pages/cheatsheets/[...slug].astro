@@ -4,7 +4,7 @@ import PostLayout from '../../layouts/PostLayout.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('articles');
+  const posts = await getCollection('cheatsheets');
 
   return posts.map(post => ({
     params: { slug: post.slug },
@@ -17,7 +17,7 @@ const { data, collection, slug } = post;
 const { Content } = await post.render();
 ---
 
-<BaseLayout title="Articles">
+<BaseLayout title="Cheet Sheets">
   <PostLayout frontmatter={data} collection={collection} slug={slug}>
     <Content />
   </PostLayout>

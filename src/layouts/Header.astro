@@ -1,7 +1,9 @@
 ---
 import Breadcrumbs from '../components/astro/Breadcrumbs.astro';
 
+const { title } = Astro.props;
 const path = Astro.url.pathname;
+const isInvalidPage = title === '404: Page not found'
 ---
 
 <header class="fixed inset-x-0 top-0 z-10 flex h-16 items-center justify-between bg-gray-700 px-4 shadow transition-transform duration-300 peer-checked:translate-x-[70vw] md:pl-[22rem] md:peer-checked:translate-x-0">
@@ -18,8 +20,7 @@ const path = Astro.url.pathname;
 
   <!-- (Desktop) breadcrumbs & search -->
   <div class="hidden w-full items-center justify-between md:flex">
-    <!-- dummy breadcrumbs -->
-    <Breadcrumbs path={path} />
+    <Breadcrumbs path={path} isInvalidPage={isInvalidPage} />
     <!-- <nav aria-label="Breadcrumb"> -->
     <!--   <ol class="flex space-x-2 text-sm text-gray-400"> -->
     <!--     <li><a href="#" class="hover:text-gray-200">Home</a></li> -->

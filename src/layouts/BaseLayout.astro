@@ -17,7 +17,7 @@ const { title = "My Site" } = Astro.props;
   <body class="bg-gray-900 text-gray-100 antialiased">
     <input type="checkbox" id="menu-toggle" class="peer absolute -top-20 opacity-0" />
     <Sidebar />
-    <Header />
+    <Header title={title} />
     <!-- Content wrapper shifts when sidebar opens on mobile -->
     <div class="min-h-screen pt-16 transition-transform duration-300 peer-checked:translate-x-[70vw] md:ml-[22rem] md:translate-x-0">
       <main class="p-6">
