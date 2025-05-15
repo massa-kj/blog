@@ -1,7 +1,7 @@
 ---
 title: "Static blog by Astro x Markdown 3 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 date: "2025-05-13"
-tags: ["Astro", "Blog"]
+tags: ["Astro"]
 summary: "Astro x Markdown"
 ---
 
