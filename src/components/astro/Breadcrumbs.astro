@@ -1,14 +1,6 @@
 ---
-import { baseUrl } from '../../utils/share'
+import { BASE_URL, LABEL_MAP } from '../../utils/share'
 const { path }: { path: string } = Astro.props;
-
-// TODO: share & fix sidebar
-const LABEL_MAP = {
-  'blog': 'Home',
-  'articles': 'Articles',
-  'cheet-sheets': 'Cheat Sheets',
-  'about': 'About',
-};
 
 // Split a path to generate a breadcrumb array
 const parts = path
@@ -25,7 +17,7 @@ const parts = path
   // home links to articles
   .map((item) => {
     if (item.label === 'Home') {
-      item.href = `${baseUrl}articles/`
+      item.href = `${BASE_URL}articles/`
     }
 	return item
   });

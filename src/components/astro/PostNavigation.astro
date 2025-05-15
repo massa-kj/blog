@@ -1,5 +1,5 @@
 ---
-import { baseUrl } from '../../utils/share'
+import { BASE_URL } from '../../utils/share'
 
 interface PostLink {
   slug: string;
@@ -12,7 +12,7 @@ const { prev, next }: { prev?: PostLink; next?: PostLink } = Astro.props;
 <div class="mt-12 grid grid-cols-2 gap-px rounded-md overflow-hidden border border-gray-700">
   <!-- OLDER -->
   <a
-    href={prev ? `${baseUrl}articles/${prev.slug}` : '#'}
+    href={prev ? `${BASE_URL}articles/${prev.slug}` : '#'}
     class={`group flex flex-col justify-center bg-gray-900 p-4 transition ${
       prev ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
     }`}
@@ -25,7 +25,7 @@ const { prev, next }: { prev?: PostLink; next?: PostLink } = Astro.props;
 
   <!-- NEWER -->
   <a
-    href={next ? `${baseUrl}articles/${next.slug}` : '#'}
+    href={next ? `${BASE_URL}articles/${next.slug}` : '#'}
     class={`group flex flex-col justify-center bg-gray-900 p-4 transition ${
       next ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
     } text-right`}

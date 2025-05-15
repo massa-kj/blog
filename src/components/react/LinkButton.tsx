@@ -1,5 +1,5 @@
 import React from 'react';
-import { baseUrl } from '../../utils/share'
+import { BASE_URL } from '../../utils/share'
 
 type LinkButtonProps = {
   href: string;
@@ -22,7 +22,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
 
   return (
     <a
-      href={`${baseUrl}${href}`}
+      href={`${BASE_URL}${href}`}
       className={`inline-flex items-center gap-2 px-4 py-2 rounded text-sm font-medium ${classes[variant]}`}
     >
       {icon && <span>{icon}</span>}
