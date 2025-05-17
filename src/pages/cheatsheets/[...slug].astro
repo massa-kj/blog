@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PostLayout from '../../layouts/PostLayout.astro';
+import ContentLayout from '../../layouts/ContentLayout.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -18,7 +18,7 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout title="Cheet Sheets">
-  <PostLayout frontmatter={data} collection={collection} slug={slug}>
+  <ContentLayout frontmatter={data} collection={collection} slug={slug}>
     <Content />
-  </PostLayout>
+  </ContentLayout>
 </BaseLayout>

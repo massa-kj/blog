@@ -18,7 +18,7 @@ const prev = allPosts[currentIndex + 1];
 const next = allPosts[currentIndex - 1];
 ---
 
-<article class="mx-auto px-4 py-8 max-w-3xl">
+<article class="content mx-auto px-4 py-8 max-w-3xl" data-pagefind-body>
   <header class="mb-6">
     <h2 class="text-3xl font-bold mb-2 break-words">{title}</h2>
     <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
@@ -31,15 +31,13 @@ const next = allPosts[currentIndex - 1];
     )}
   </header>
 
-  <section class="content" data-pagefind-body>
-    <Prose>
-      <slot />
-	</Prose>
-    <PostNavigation 
-      collection={collection}
-      prev={prev ? { slug: prev.slug, title: prev.title } : undefined}
-      next={next ? { slug: next.slug, title: next.title } : undefined}
-    />
-  </section>
+  <Prose>
+    <slot />
+  </Prose>
+  <PostNavigation 
+    collection={collection}
+    prev={prev ? { slug: prev.slug, title: prev.title } : undefined}
+    next={next ? { slug: next.slug, title: next.title } : undefined}
+  />
 </article>
 
