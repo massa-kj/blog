@@ -1,6 +1,7 @@
 ---
-import Header from "../layouts/Header.astro";
 import Sidebar from "../layouts/Sidebar.astro";
+import Header from "../layouts/Header.astro";
+import Footer from "../layouts/Footer.astro";
 
 import { BASE_URL } from '../utils/share';
 
@@ -22,7 +23,9 @@ const { title = "My Site" } = Astro.props;
   >
     <input type="checkbox" id="menu-toggle" class="peer absolute -top-20 opacity-0" />
     <Sidebar />
+
     <Header title={title} />
+
     <!-- Content wrapper shifts when sidebar opens on mobile -->
     <div class="min-h-screen pt-16 transition-transform duration-300 peer-checked:translate-x-[70vw] md:ml-[22rem] md:translate-x-0">
       <main class="p-6">
@@ -30,9 +33,7 @@ const { title = "My Site" } = Astro.props;
       </main>
     </div>
 
-    <footer class="p-4 mt-12 text-center text-sm text-gray-500">
-      &copy; {new Date().getFullYear()} All rights reserved.
-    </footer>
+	<Footer />
   </body>
 </html>
 
