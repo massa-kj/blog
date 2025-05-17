@@ -1,5 +1,5 @@
 ---
-import { BASE_URL, LABEL_MAP } from '../../utils/share'
+import { BASE_URL, LABEL_MAP } from '../../utils/share';
 
 const { path, isInvalidPage }: { path: string, isInvalidPage: Boolean } = Astro.props;
 
@@ -18,9 +18,9 @@ const parts = path
   // home links to articles
   .map((item) => {
     if (item.label === 'Home') {
-      item.href = `${BASE_URL}articles/`
+      item.href = `${BASE_URL}articles/`;
     }
-    return item
+	return item;
   });
 ---
 

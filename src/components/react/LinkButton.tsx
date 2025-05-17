@@ -1,5 +1,5 @@
 import React from 'react';
-import { BASE_URL } from '../../utils/share'
+import { BASE_URL } from '../../utils/share';
 
 type LinkButtonProps = {
   href: string;

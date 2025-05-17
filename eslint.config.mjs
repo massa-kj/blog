@@ -53,10 +53,10 @@ export default [
     },
   },
 
-  {
-    files: ['**/*.md'],
-    plugins: { markdown },
-    processor: 'markdown/markdown',
-  },
+  // {
+  //   files: ['**/*.md'],
+  //   plugins: { markdown },
+  //   processor: 'markdown/markdown',
+  // },
 ];
 

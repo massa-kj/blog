@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import PostNavigation from '../components/astro/PostNavigation.astro';
-import Prose from '../layouts/Prose.astro'
+import Prose from '../layouts/Prose.astro';
 
 const { frontmatter, collection, slug } = Astro.props;
-const { title, date, tags, summary } = frontmatter;
+const { title, date, tags } = frontmatter;
 
 const allPosts = (await getCollection(collection)).map((p) => ({
   slug: p.slug,
@@ -13,7 +13,7 @@ const allPosts = (await getCollection(collection)).map((p) => ({
 })).sort((a, b) => b.date.getTime() - a.date.getTime());
 
 const currentIndex = allPosts.findIndex(post => post.slug === slug);
-const current = allPosts[currentIndex];
+// const current = allPosts[currentIndex];
 const prev = allPosts[currentIndex + 1];
 const next = allPosts[currentIndex - 1];
 ---
