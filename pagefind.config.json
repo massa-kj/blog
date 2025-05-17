@@ -1,0 +1,5 @@
+{
+  "rootSelector": ".content"
+  "excludeSelectors": [".no-search"]
+  "glob": "**/*.html"
+}

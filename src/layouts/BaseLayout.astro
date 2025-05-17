@@ -1,6 +1,9 @@
 ---
 import Header from "../layouts/Header.astro";
 import Sidebar from "../layouts/Sidebar.astro";
+
+import { BASE_URL } from '../utils/share';
+
 import "../styles/global.css";
 
 const { title = "My Site" } = Astro.props;
@@ -14,7 +17,10 @@ const { title = "My Site" } = Astro.props;
     <title>{title}</title>
   </head>
   <!-- <body class="font-sans bg-white text-gray-900 dark:bg-gray-900 dark:text-white"> -->
-  <body class="bg-gray-900 text-gray-100 antialiased">
+  <body
+    class="bg-gray-900 text-gray-100 antialiased"
+    data-base-url={BASE_URL}
+  >
     <input type="checkbox" id="menu-toggle" class="peer absolute -top-20 opacity-0" />
     <Sidebar />
     <Header title={title} />
