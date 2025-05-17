@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/astro/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('articles');
+
+  const years = Array.from(new Set(
+    posts.map(entry => entry.id.split('/')[0]) // '2025/slug' → '2025'
+  ));
+
+  return years.map(year => ({ params: { year } }));
+}
+
+const { year } = Astro.params;
+const allEntries = await getCollection('articles');
+const entries = allEntries
+  .filter(entry => entry.id.startsWith(`${year}/`))
+  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
+---
+
+<BaseLayout>
+  <section class="flex flex-col gap-6">
+    {entries
+      .sort((a, b) => a.slug - b.slug)
+      .map(({ data, collection, slug }) => (
+        <ArticleCard
+          key={slug}
+          title={data.title}
+          collection={collection}
+          slug={slug}
+        />
+      ))
+    }
+  </section>
+</BaseLayout>
+
