@@ -36,7 +36,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build site
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Build
         run: pnpm run build
 
       - name: Upload artifact
@@ -44,6 +47,6 @@ jobs:
         with:
           path: dist
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: actions/deploy-pages@v4
 
