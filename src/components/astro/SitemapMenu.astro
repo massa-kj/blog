@@ -1,0 +1,55 @@
+---
+import { BASE_URL } from '../../utils/share';
+import { directoryMenu } from '../../utils/directoryMenu';
+
+const { currentPath } = Astro.props;
+
+function isActive(path: string): boolean {
+  return currentPath.includes(path);
+}
+---
+
+<ul>
+  {directoryMenu.map((item) => (
+    <li class="group">
+      <details class="" {item.children ? '' : 'open'}>
+        <summary class="flex items-center justify-between cursor-pointer hover:bg-gray-800 rounded">
+          <a
+            href=`${BASE_URL}${item.path.substring(1)}`
+            class={`flex-1 block px-4 py-2 rounded transition hover:bg-gray-700 ${isActive(item.path) ? 'text-indigo-400 font-semibold' : ''}`}
+          >
+            {item.label}
+          </a>
+          {item.children && (
+            <svg
+              class="w-4 h-4 ml-2 text-gray-400 transition-transform group-open:rotate-90"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          )}
+        </summary>
+        {item.children && (
+          <ul class="pl-4">
+            {item.children.map(child => (
+              <li>
+                <a
+                  href=`${BASE_URL}${child.path.substring(1)}`
+                  class={`block px-4 py-2 rounded transition hover:bg-gray-700 ${
+                    isActive(child.path) ? 'text-indigo-400 font-semibold' : ''
+                  }`}
+                >
+                  {child.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </details>
+    </li>
+  ))}
+</ul>
