@@ -1,0 +1,18 @@
+---
+import { BASE_URL } from '../../utils/share';
+import { slugify } from '../../utils/astro';
+const { tags = [] } = Astro.props;
+---
+
+{tags.length > 0 && (
+  <div class="mt-4 flex flex-wrap gap-2">
+    {tags.map(tag => (
+      <a
+        href={`${BASE_URL}tags/${slugify(tag)}`}
+        class="inline-block rounded-lg border border-gray-700 bg-gray-800 p-2 transition hover:border-indigo-500 hover:bg-gray-700"
+      >
+	  <span class="text-white group-hover:text-indigo-400 break-words">{tag}</span>
+      </a>
+    ))}
+  </div>
+)}
