@@ -1,5 +1,5 @@
 ---
-import Sidebar from "../layouts/Sidebar.astro";
+import SidebarLeft from "../layouts/SidebarLeft.astro";
 import SidebarRight from "../layouts/SidebarRight.astro";
 import Header from "../layouts/Header.astro";
 import Footer from "../layouts/Footer.astro";
@@ -23,7 +23,7 @@ const { title = "My Site", toc = null } = Astro.props;
     data-base-url={BASE_URL}
   >
     <input type="checkbox" id="menu-toggle" class="peer absolute -top-20 opacity-0" />
-    <Sidebar />
+    <SidebarLeft />
 
     <Header title={title} />
 
