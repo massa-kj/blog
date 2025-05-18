@@ -1,5 +1,5 @@
 ---
-import { BASE_URL, LABEL_MAP } from '../../utils/share';
+import { BASE_URL, BREADCRUMBS_DEFINITION } from '../../utils/share';
 
 const { path, isInvalidPage }: { path: string, isInvalidPage: Boolean } = Astro.props;
 
@@ -11,7 +11,7 @@ const parts = path
   .map((part, index, array) => {
     const href = '/' + array.slice(0, index + 1).join('/');
     return {
-      label: LABEL_MAP[part] ?? part,
+      label: BREADCRUMBS_DEFINITION[part] ?? part,
       href: index < array.length - 1 ? `${href}/` : undefined,  // No link at the end
     };
   })

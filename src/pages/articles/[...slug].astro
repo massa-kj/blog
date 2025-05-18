@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { TOP_MENU } from '../../utils/share';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const contents = await getCollection('articles');
+  const contents = await getCollection(TOP_MENU.articles);
 
   return contents.map(content => ({
     params: { slug: content.slug },

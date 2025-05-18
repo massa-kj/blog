@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/astro/ArticleCard.astro';
+import { TOP_MENU } from '../utils/share';
 import { getCollection } from 'astro:content';
 
-const articles = await getCollection('articles');
+const contents = await getCollection(TOP_MENU.articles);
 ---
 
 <BaseLayout>
   <section class="flex flex-col gap-6">
-    {articles
+    {contents
       .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
       .map(({ data, collection, slug }) => (
         <ArticleCard 

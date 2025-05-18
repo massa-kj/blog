@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/astro/ArticleCard.astro';
+import { TOP_MENU } from '../../utils/share';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('articles');
+  const posts = await getCollection(TOP_MENU.articles);
 
   const years = Array.from(new Set(
     posts.map(entry => entry.id.split('/')[0]) // '2025/slug' → '2025'
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { year } = Astro.params;
-const allEntries = await getCollection('articles');
+const allEntries = await getCollection(TOP_MENU.articles);
 const entries = allEntries
   .filter(entry => entry.id.startsWith(`${year}/`))
   .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));

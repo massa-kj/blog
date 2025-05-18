@@ -2,11 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { slugify } from '../../utils/astro';
-import { BASE_URL } from '../../utils/share';
+import { BASE_URL, TOP_MENU } from '../../utils/share';
 
 const [articles, cheatsheets] = await Promise.all([
-  getCollection('articles'),
-  getCollection('cheatsheets'),
+  getCollection(TOP_MENU.articles),
+  getCollection(TOP_MENU.cheatsheets),
 ]);
 const allEntries = [...articles, ...cheatsheets];
 
