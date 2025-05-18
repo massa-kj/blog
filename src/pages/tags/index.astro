@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { slugify } from '../../utils/astro';
+import { BASE_URL } from '../../utils/share';
+
+const [articles, cheatsheets] = await Promise.all([
+  getCollection('articles'),
+  getCollection('cheatsheets'),
+]);
+const allEntries = [...articles, ...cheatsheets];
+
+// Map { tag: article }
+const tagMap = new Map<string, typeof allEntries>();
+
+for (const entry of allEntries) {
+  const tags = entry.data.tags || [];
+  for (const tag of tags) {
+    const list = tagMap.get(tag) || [];
+    tagMap.set(tag, [...list, entry]);
+  }
+}
+
+const sortedTags = Array.from(tagMap.entries()).sort((a, b) =>
+  a[0].localeCompare(b[0])
+);
+---
+
+<BaseLayout>
+  <h1 class="text-2xl font-bold mb-6">Tags</h1>
+  <div class="flex flex-wrap gap-3">
+    {sortedTags.map(([tag, entries]) => (
+      <a
+        href={`${BASE_URL}tags/${slugify(tag)}`}
+        class="px-3 py-1 bg-gray-800 text-white rounded hover:bg-indigo-600 transition text-sm"
+      >
+        {tag} <span class="text-gray-400">({entries.length})</span>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
+

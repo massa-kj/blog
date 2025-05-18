@@ -10,7 +10,7 @@ const articles = await getCollection('articles');
   <section class="flex flex-col gap-6">
     {articles
       .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-	  .map(({ data, collection, slug }) => (
+      .map(({ data, collection, slug }) => (
         <ArticleCard 
           key={slug}
           title={data.title}

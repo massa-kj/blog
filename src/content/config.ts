@@ -12,6 +12,7 @@ const articles = defineCollection({
 const cheatsheets = defineCollection({
   schema: z.object({
     title: z.string(),
+    date: z.string().transform(str => new Date(str)),
     tags: z.array(z.string()).optional(),
   }),
 });

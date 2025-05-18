@@ -1,5 +1,6 @@
 ---
 title: "git"
+date: "2025-05-10"
 tags: ["git"]
 ---
 

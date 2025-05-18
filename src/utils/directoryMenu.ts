@@ -12,6 +12,10 @@ export const directoryMenu = [
     path: '/cheatsheets',
   },
   {
+    label: 'Tags',
+    path: '/tags',
+  },
+  {
     label: 'About',
     path: '/about',
   },
