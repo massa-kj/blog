@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import PostNavigation from '../components/astro/PostNavigation.astro';
+import SearchableContent from '../layouts/SearchableContent.astro';
+
+const { content } = Astro.props;
+const { data, render, collection, slug } = content;
+
+const { title, date, tags } = data;
+const { Content } = await render();
+
+const contents = (await getCollection(collection)).map((p) => ({
+  slug: p.slug,
+  title: p.data.title,
+  date: new Date(p.data.date),
+})).sort((a, b) => b.date.getTime() - a.date.getTime());
+const currentIndex = contents.findIndex(content => content.slug === slug);
+const prev = contents[currentIndex + 1];
+const next = contents[currentIndex - 1];
+---
+
+<article class="mx-auto px-4 py-8 max-w-3xl">
+  <SearchableContent>
+    <header class="mb-6">
+      <h2 class="text-3xl font-bold mb-2 break-words">{title}</h2>
+      <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
+      {tags && (
+        <ul class="flex flex-wrap gap-2 mt-2">
+          {tags.map(tag => (
+            <li class="text-xs bg-gray-200 rounded px-2 py-1">{tag}</li>
+          ))}
+        </ul>
+      )}
+    </header>
+    <Content />
+  </SearchableContent>
+  <PostNavigation
+    collection={collection}
+    prev={prev ? { slug: prev.slug, title: prev.title } : undefined}
+    next={next ? { slug: next.slug, title: next.title } : undefined}
+  />
+</article>
+
