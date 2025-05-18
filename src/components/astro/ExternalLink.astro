@@ -1,0 +1,13 @@
+---
+const { label, href } = Astro.props;
+---
+
+<a
+  href={href}
+  class="text-white hover:text-indigo-400 transition"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={`Visit my ${label} profile`}
+>
+  <slot />
+</a>
