@@ -1,0 +1,21 @@
+---
+const { toc = [] } = Astro.props;
+---
+
+<aside class="hidden xl:block w-64 fixed right-0 top-16 h-screen overflow-y-auto p-4 bg-gray-900 text-white border-l border-gray-800">
+  {toc && (
+    <h2 class="text-base font-semibold mb-3">Index</h2>
+    <ul class="space-y-1 text-sm">
+      {toc?.map(item => (
+        <li class={`ml-${(item.level - 2) * 4}`}>
+          <details class={item.level === 2 ? 'mb-1' : 'ml-2'} open>
+            <summary class="cursor-pointer text-white hover:text-indigo-400">
+              <a href={`#${item.id}`}>{item.text}</a>
+            </summary>
+          </details>
+        </li>
+      ))}
+    </ul>
+  )}
+</aside>
+

@@ -2,11 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { TOP_MENU } from '../../utils/share';
+import { generateToc } from '../../utils/astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const contents = await getCollection(TOP_MENU.articles);
-
   return contents.map(content => ({
     params: { slug: content.slug },
     props: { content },
@@ -14,8 +14,9 @@ export async function getStaticPaths() {
 }
 
 const { content } = Astro.props;
+const toc = generateToc(content.rendered.metadata.headings);
 ---
 
-<BaseLayout title="Articles">
+<BaseLayout title="Articles" toc={toc} >
   <ArticleLayout content={content} />
 </BaseLayout>

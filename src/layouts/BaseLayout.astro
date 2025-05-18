@@ -1,5 +1,6 @@
 ---
 import Sidebar from "../layouts/Sidebar.astro";
+import SidebarRight from "../layouts/SidebarRight.astro";
 import Header from "../layouts/Header.astro";
 import Footer from "../layouts/Footer.astro";
 
@@ -7,7 +8,7 @@ import { BASE_URL } from '../utils/share';
 
 import "../styles/global.css";
 
-const { title = "My Site" } = Astro.props;
+const { title = "My Site", toc = null } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -26,9 +27,14 @@ const { title = "My Site" } = Astro.props;
 
     <Header title={title} />
 
+    <aside class="hidden xl:block w-64 bg-gray-900 text-white border-l border-gray-800">
+      <SidebarRight toc={toc} />
+    </aside>
+
     <!-- Content wrapper shifts when sidebar opens on mobile -->
-    <div class="min-h-screen pt-16 transition-transform duration-300 peer-checked:translate-x-[70vw] md:ml-[22rem] md:translate-x-0">
-      <main class="p-6">
+    <div class="min-h-screen pt-16 xl:mr-64 transition-transform duration-300 peer-checked:translate-x-[70vw] md:ml-[22rem] md:translate-x-0">
+    <!-- <div class="min-h-screen pt-header xl:mr-right-sidebar transition-transform duration-300 peer-checked:translate-x-[70vw] md:ml-[22rem] md:translate-x-0"> -->
+      <main class="flex-1 max-w-3xl mx-auto p-6">
         <slot />
       </main>
     </div>
