@@ -1,46 +1,91 @@
 ---
 ---
 
-<div class="relative w-full max-w-sm md:max-w-md mx-auto md:ml-auto">
-  <input
-    id="search"
-    type="search"
-    placeholder="Search..."
-    class="w-full rounded bg-gray-800 text-white border border-gray-600 py-2 pl-10 pr-4 text-sm focus:outline-none"
-  />
-  <svg
-    class="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-gray-400"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    viewBox="0 0 24 24"
+<div>
+  <!-- Search Icon -->
+  <button
+    id="open-search"
+    class="text-white hover:text-indigo-400"
+    aria-label="Open Search"
   >
-    <circle cx="11" cy="11" r="8" />
-    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-  </svg>
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  </button>
+
+  <!-- modal -->
   <div
-    id="search-results"
-    class="absolute left-0 right-0 top-full mt-2 bg-gray-900 border border-gray-700 rounded-lg shadow-xl max-h-80 overflow-auto hidden z-50 space-y-2 p-2"
-  ></div>
+    id="search-modal"
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center"
+  >
+    <div
+      id="search-container"
+      class="w-full max-w-xl bg-gray-900 p-6 rounded shadow-lg relative mx-4 opacity-0 scale-95 transition-all duration-200 overflow-y-auto max-h-[90vh]"
+    >
+      <button id="close-search" class="absolute ml-4 top-0 right-1 text-gray-400 hover:text-white text-2xl" aria-label="Close Search">
+        &times;
+      </button>
+
+      <input
+        id="search"
+        type="search"
+        placeholder="Search..."
+        class="w-full rounded bg-gray-800 text-white border border-gray-600 py-2 px-3 text-sm focus:outline-none"
+      />
+
+      <div
+        id="search-results"
+        class="mt-4 bg-gray-800 border border-gray-700 rounded max-h-60 overflow-auto hidden space-y-2 p-2"
+      ></div>
+    </div>
+  </div>
 </div>
 
 <script type="module">
   const baseUrl = document.body.dataset.baseUrl;
+  const openBtn = document.getElementById("open-search");
+  const closeBtn = document.getElementById("close-search");
+  const modal = document.getElementById("search-modal");
+  const container = document.getElementById("search-container");
   const searchInput = document.getElementById("search");
   const searchResults = document.getElementById("search-results");
 
   let pagefindReady = false;
 
   try {
-	const pagefind = await import(`${baseUrl}pagefind/pagefind.js`);
-    await pagefind.init();  // pagefind.init() は default export の後に必要
-
+    const pagefind = await import(`${baseUrl}pagefind/pagefind.js`);
+    await pagefind.init();
     pagefindReady = true;
   } catch (err) {
     console.warn("Pagefind failed to load", err);
   }
+
+  function openModal() {
+    modal.classList.remove("hidden");
+    requestAnimationFrame(() => {
+      container.classList.remove("opacity-0", "scale-95");
+      container.classList.add("opacity-100", "scale-100");
+      setTimeout(() => searchInput.focus(), 100);
+    });
+  }
+
+  function closeModal() {
+    container.classList.add("opacity-0", "scale-95");
+    container.classList.remove("opacity-100", "scale-100");
+    setTimeout(() => {
+      modal.classList.add("hidden");
+      searchInput.value = "";
+      searchResults.innerHTML = "";
+      searchResults.classList.add("hidden");
+    }, 200); // match transition
+  }
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 
   searchInput.addEventListener("input", async (e) => {
     if (!pagefindReady) return;
@@ -52,7 +97,7 @@
       return;
     }
 
-	const pagefind = await import(`${baseUrl}pagefind/pagefind.js`);
+    const pagefind = await import(`${baseUrl}pagefind/pagefind.js`);
     const search = await pagefind.search(query);
     const items = await Promise.all(search.results.map(r => r.data()));
 
