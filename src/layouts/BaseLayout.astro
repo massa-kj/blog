@@ -32,8 +32,7 @@ const { title = "My Site", toc = null } = Astro.props;
     </aside>
 
     <!-- Content wrapper shifts when sidebar opens on mobile -->
-    <div class="min-h-screen pt-16 xl:mr-64 transition-transform duration-300 peer-checked:translate-x-[70vw] md:ml-[22rem] md:translate-x-0">
-    <!-- <div class="min-h-screen pt-header xl:mr-right-sidebar transition-transform duration-300 peer-checked:translate-x-[70vw] md:ml-[22rem] md:translate-x-0"> -->
+    <div class="min-h-screen pt-header xl:mr-right-sidebar transition-transform duration-300 peer-checked:translate-x-left-sidebar md:ml-left-sidebar-md md:translate-x-0">
       <main class="flex-1 max-w-3xl mx-auto p-6">
         <slot />
       </main>

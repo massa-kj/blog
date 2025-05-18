@@ -7,8 +7,8 @@ import { BASE_URL } from '../utils/share';
 const currentPath = Astro.url.pathname;
 ---
 
-<aside class="fixed left-0 top-0 z-20 h-screen w-[70vw] -translate-x-full transform bg-gray-800 text-gray-100 transition-transform duration-300 peer-checked:translate-x-0 md:w-[22rem] md:translate-x-0">
-  <a href=`${BASE_URL}articles` class="flex h-16 items-center px-6 text-2xl font-extrabold hover:text-indigo-400">
+<aside class="fixed left-0 top-0 z-20 h-screen w-left-sidebar -translate-x-full transform bg-gray-800 text-gray-100 transition-transform duration-300 peer-checked:translate-x-0 md:w-left-sidebar-md md:translate-x-0">
+  <a href=`${BASE_URL}articles` class="flex h-header items-center px-6 text-2xl font-extrabold hover:text-indigo-400">
     My&nbsp;Site
   </a>
   <nav class="mt-4 flex flex-col gap-1 px-4">

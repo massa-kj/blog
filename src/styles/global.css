@@ -1,5 +1,13 @@
 @import "tailwindcss";
+@import "tailwindcss" source('./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}');
 @plugin '@tailwindcss/typography';
+
+@theme {
+  --spacing-header: 4rem;
+  --spacing-left-sidebar: 70vw;
+  --spacing-left-sidebar-md: 22rem;
+  --spacing-right-sidebar: 16rem;
+}
 
 summary {
   list-style: none;
