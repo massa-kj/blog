@@ -2,7 +2,7 @@
 const { toc = [] } = Astro.props;
 ---
 
-<aside class="hidden xl:block w-64 fixed right-0 top-16 h-screen overflow-y-auto p-4 bg-gray-900 text-white border-l border-gray-800">
+<div class="h-full overflow-y-auto p-4 bg-gray-900 text-white border-l border-gray-800">
   {toc && (
     <h2 class="text-base font-semibold mb-3">Index</h2>
     <ul class="space-y-1 text-sm">
@@ -17,5 +17,5 @@ const { toc = [] } = Astro.props;
       ))}
     </ul>
   )}
-</aside>
+</div>
 
