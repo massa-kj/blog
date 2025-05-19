@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import MainContainer from '../../layouts/MainContainer.astro';
 import ArticleCard from '../../components/astro/ArticleCard.astro';
 import { TOP_MENU } from '../../utils/share';
 import { getCollection } from 'astro:content';
@@ -35,20 +36,22 @@ const filtered = allEntries.filter(entry =>
 ---
 
 <BaseLayout>
-  <h1 class="text-2xl font-bold mb-6">Tagged: {tag}</h1>
-  <section class="flex flex-col gap-6">
-    {filtered
-      .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-      .map(({ data, collection, slug }) => (
-        <ArticleCard
-          key={slug}
-          title={data.title}
-          description={data.summary}
-          pubDate={data.date}
-          collection={collection}
-          slug={slug}
-        />
-      ))}
-  </section>
+  <MainContainer>
+    <h1 class="text-2xl font-bold mb-6">Tagged: {tag}</h1>
+    <section class="flex flex-col gap-6">
+      {filtered
+        .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+        .map(({ data, collection, slug }) => (
+          <ArticleCard
+            key={slug}
+            title={data.title}
+            description={data.summary}
+            pubDate={data.date}
+            collection={collection}
+            slug={slug}
+          />
+        ))}
+    </section>
+  </MainContainer>
 </BaseLayout>
 

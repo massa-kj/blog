@@ -1,8 +1,8 @@
 ---
-import SidebarLeft from "../layouts/SidebarLeft.astro";
-import SidebarRight from "../layouts/SidebarRight.astro";
-import Header from "../layouts/Header.astro";
-import Footer from "../layouts/Footer.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import SidebarLeft from "./SidebarLeft.astro";
+import SidebarRight from "./SidebarRight.astro";
 
 import { BASE_URL } from '../utils/share';
 
@@ -36,15 +36,17 @@ const { title = "My Site", toc = null } = Astro.props;
     <aside class="hidden xl:block w-64 h-full fixed right-0 top-16">
       <SidebarRight toc={toc} />
     </aside>
-
-    <!-- Content wrapper shifts when sidebar opens on mobile -->
-    <div class="min-h-screen pt-header xl:mr-right-sidebar transition-transform duration-300 peer-checked:translate-x-left-sidebar md:ml-left-sidebar-md md:translate-x-0">
-      <main class="flex-1 max-w-3xl mx-auto p-6">
+    <!-- Content -->
+    <!-- Shifts when sidebar opens on mobile -->
+    <div
+      class="flex flex-col min-h-screen
+      pt-header xl:mr-right-sidebar transition-transform duration-300 peer-checked:translate-x-left-sidebar
+      md:ml-left-sidebar-md md:translate-x-0">
+      <div class="flex-1 w-full max-w-3xl mx-auto">
         <slot />
-      </main>
+      </div>
+	  <Footer />
     </div>
-
-	<Footer />
   </body>
 </html>
 

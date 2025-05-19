@@ -20,7 +20,7 @@ const prev = contents[currentIndex + 1];
 const next = contents[currentIndex - 1];
 ---
 
-<article class="mx-auto px-4 py-8 max-w-3xl">
+<article class="mx-auto max-w-3xl px-6">
   <SearchableContent>
     <header class="mb-6">
       <h2 class="text-3xl font-bold mb-2 break-words">{title}</h2>
@@ -35,4 +35,3 @@ const next = contents[currentIndex - 1];
     next={next ? { slug: next.slug, title: next.title } : undefined}
   />
 </article>
-
