@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import MainContainer from '../layouts/MainContainer.astro';
 import ArticleCard from '../components/astro/ArticleCard.astro';
 import { TOP_MENU } from '../utils/share';
 import { getCollection } from 'astro:content';
@@ -9,19 +8,17 @@ const contents = await getCollection(TOP_MENU.cheatsheets);
 ---
 
 <BaseLayout>
-  <MainContainer>
-    <section class="flex flex-col gap-6">
-      {contents
-        .sort((a, b) => a.slug - b.slug)
-        .map(({ data, collection, slug }) => (
-          <ArticleCard
-            key={slug}
-            title={data.title}
-            collection={collection}
-            slug={slug}
-          />
-        ))}
-    </section>
-  <MainContainer>
+  <section class="flex flex-col gap-6">
+    {contents
+      .sort((a, b) => a.slug - b.slug)
+      .map(({ data, collection, slug }) => (
+        <ArticleCard
+          key={slug}
+          title={data.title}
+          collection={collection}
+          slug={slug}
+        />
+      ))}
+  </section>
 </BaseLayout>
 

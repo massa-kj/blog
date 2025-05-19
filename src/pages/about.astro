@@ -1,14 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import MainContainer from '../layouts/MainContainer.astro';
-import Content from '../layouts/Content.astro';
+import ContentContainer from '../layouts/ContentContainer.astro';
 import AboutContent from '../content/about.md';
 ---
 
 <BaseLayout title="About">
-  <MainContainer>
-    <Content>
-      <AboutContent />
-    </Content>
-  </MainContainer>
+  <ContentContainer>
+    <AboutContent />
+  </ContentContainer>
 </BaseLayout>

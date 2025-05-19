@@ -3,6 +3,7 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import SidebarLeft from "./SidebarLeft.astro";
 import SidebarRight from "./SidebarRight.astro";
+import MainContainer from "./MainContainer.astro";
 
 import { BASE_URL } from '../utils/share';
 
@@ -38,15 +39,17 @@ const { title = "My Site", toc = null } = Astro.props;
     </aside>
     <!-- Content -->
     <!-- Shifts when sidebar opens on mobile -->
-    <div
+    <main
       class="flex flex-col min-h-screen
       pt-header xl:mr-right-sidebar transition-transform duration-300 peer-checked:translate-x-left-sidebar
       md:ml-left-sidebar-md md:translate-x-0">
       <div class="flex-1 w-full max-w-3xl mx-auto">
-        <slot />
+        <MainContainer>
+          <slot />
+        </MainContainer>
       </div>
-	  <Footer />
-    </div>
+      <Footer />
+    </main>
   </body>
 </html>
 

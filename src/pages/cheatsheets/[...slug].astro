@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ArticlePage from '../../layouts/ArticlePage.astro';
 import { TOP_MENU } from '../../utils/share';
 import { getCollection } from 'astro:content';
 
@@ -17,5 +17,5 @@ const { content } = Astro.props;
 ---
 
 <BaseLayout title="Cheet Sheets">
-  <ArticleLayout content={content} />
+  <ArticlePage content={content} />
 </BaseLayout>

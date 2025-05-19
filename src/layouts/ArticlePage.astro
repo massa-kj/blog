@@ -1,7 +1,8 @@
 ---
+import SearchableContainer from './SearchableContainer.astro';
+import ContentContainer from './ContentContainer.astro';
 import PostNavigation from '../components/astro/PostNavigation.astro';
 import TagList from '../components/astro/TagList.astro';
-import SearchableContent from '../layouts/SearchableContent.astro';
 import { getCollection } from 'astro:content';
 
 const { content } = Astro.props;
@@ -20,18 +21,18 @@ const prev = contents[currentIndex + 1];
 const next = contents[currentIndex - 1];
 ---
 
-<article class="mx-auto max-w-3xl px-6">
-  <SearchableContent>
-    <header class="mb-6">
-      <h2 class="text-3xl font-bold mb-2 break-words">{title}</h2>
-      <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
-      <TagList tags={tags} />
-    </header>
+<SearchableContainer>
+  <header class="mb-6">
+    <h2 class="text-3xl font-bold mb-2 break-words">{title}</h2>
+    <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
+    <TagList tags={tags} />
+  </header>
+  <ContentContainer>
     <Content />
-  </SearchableContent>
-  <PostNavigation
-    collection={collection}
-    prev={prev ? { slug: prev.slug, title: prev.title } : undefined}
-    next={next ? { slug: next.slug, title: next.title } : undefined}
-  />
-</article>
+  </ContentContainer>
+</SearchableContainer>
+<PostNavigation
+  collection={collection}
+  prev={prev ? { slug: prev.slug, title: prev.title } : undefined}
+  next={next ? { slug: next.slug, title: next.title } : undefined}
+/>
