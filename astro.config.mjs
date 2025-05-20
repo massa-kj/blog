@@ -8,14 +8,14 @@ import tailwindcss from '@tailwindcss/vite';
 const BASE_PATH = '/blog/';
 
 export default defineConfig({
-  site: 'https://compQx7.github.io',
+  site: 'https://compQx7.github.io/blog',
   base: BASE_PATH,
 
   output: 'static',
 
   integrations: [
       react(),
-      sitemap({}),
+      sitemap(),
 	],
 
   vite: {
