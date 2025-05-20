@@ -26,9 +26,9 @@ const { title = "My Site", toc = null } = Astro.props;
     <!-- Left Sidebar Toggle -->
     <input type="checkbox" id="menu-toggle" class="peer absolute -top-20 opacity-0" />
     <!-- Header -->
-    <aside id="header" class="fixed inset-x-0 top-0 z-10 h-header transition-transform duration-300 peer-checked:translate-x-left-sidebar md:pl-left-sidebar-md md:peer-checked:translate-x-0">
+    <header id="header" class="fixed inset-x-0 top-0 z-10 h-header transition-transform duration-300 peer-checked:translate-x-left-sidebar md:pl-left-sidebar-md md:peer-checked:translate-x-0">
       <Header title={title} />
-    </aside>
+    </header>
     <!-- Left Sidebar -->
     <aside class="fixed left-0 top-0 z-20 h-screen w-left-sidebar -translate-x-full transform transition-transform duration-300 peer-checked:translate-x-0 md:w-left-sidebar-md md:translate-x-0">
       <SidebarLeft />

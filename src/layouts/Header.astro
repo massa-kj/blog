@@ -7,7 +7,7 @@ const path = Astro.url.pathname;
 const isInvalidPage = title === '404: Page not found';
 ---
 
-<header class="flex h-full items-center justify-between bg-gray-700 px-4 shadow">
+<div class="flex h-full items-center justify-between bg-gray-700 px-4 shadow">
   <!-- (Mobile) left-side hamburger -->
   <div class="flex items-center md:hidden">
     <label for="menu-toggle" class="cursor-pointer p-2 focus:outline-none focus:ring">
@@ -26,7 +26,7 @@ const isInvalidPage = title === '404: Page not found';
   <!-- (Common) search -->
   <Search />
 
-</header>
+</div>
 
 <script>
   const header = document.getElementById("header");
