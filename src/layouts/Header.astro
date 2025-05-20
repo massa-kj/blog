@@ -27,3 +27,44 @@ const isInvalidPage = title === '404: Page not found';
   <Search />
 
 </header>
+
+<script>
+  const header = document.getElementById("header");
+  let lastScroll = 0;
+  let ticking = false;
+
+  function onScroll() {
+    const current = window.scrollY;
+
+    // on mobile
+    if (window.innerWidth < 768) {
+      if (current > lastScroll && current > 50) {
+        // Scroll down -> hide
+        header.classList.add("-translate-y-full");
+      } else {
+        // Scroll up -> display
+        header.classList.remove("-translate-y-full");
+      }
+    } else {
+      // Always display on desktop
+      header.classList.remove("-translate-y-full");
+    }
+
+    lastScroll = current;
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    // Reset translate on resize
+    if (window.innerWidth >= 768) {
+      header.classList.remove("-translate-y-full");
+    }
+  });
+</script>
