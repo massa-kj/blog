@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   const posts = await getCollection(TOP_MENU.articles);
 
   const years = Array.from(new Set(
-    posts.map(entry => entry.id.split('/')[0]) // '2025/slug' → '2025'
+    posts.map(entry => entry.id.split('/')[0]), // '2025/slug' → '2025'
   ));
 
   return years.map(year => ({ params: { year } }));

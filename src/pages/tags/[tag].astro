@@ -30,7 +30,7 @@ const [articles, cheatsheets] = await Promise.all([
 const allEntries = [...articles, ...cheatsheets];
 
 const filtered = allEntries.filter(entry =>
-  (entry.data.tags || []).map(t => t.toLowerCase()).includes(tag.toLowerCase())
+  (entry.data.tags || []).map(t => t.toLowerCase()).includes(tag.toLowerCase()),
 );
 ---
 
