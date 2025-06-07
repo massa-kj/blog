@@ -1,0 +1,72 @@
+---
+import { languages } from '../../i18n/ui';
+import { replaceLangInPath } from '../../i18n/utils';
+import { getLangFromUrl } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const { pathname } = Astro.url;
+const currentLabel = languages[lang] ?? lang;
+---
+<div class="relative inline-block text-left">
+  <!-- PC: label + icon, mobile: icon -->
+  <button
+    id="lang-menu-btn"
+    type="button"
+    class="inline-flex justify-center items-center gap-1 rounded-md border border-gray-300 dark:border-gray-700 px-3 py-1 text-sm font-medium shadow hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <!-- PC only -->
+    <span class="hidden md:inline">{currentLabel}</span>
+    <svg class="ml-1 w-5 h-5 md:ml-1 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c3.314 0 6 4.03 6 9s-2.686 9-6 9-6-4.03-6-9 2.686-9 6-9z"/>
+    </svg>
+  </button>
+  <div
+    id="lang-menu"
+    class="hidden absolute right-0 z-20 mt-2 w-36 origin-top-right rounded-md bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black/5"
+    tabindex="-1"
+  >
+    <div class="py-1">
+      {Object.entries(languages).map(([l, label]) => (
+        <a
+          href={replaceLangInPath(pathname, l)}
+          class={`block px-4 py-2 text-sm cursor-pointer transition
+            ${lang === l ? 'bg-blue-600 text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200'}
+          `}
+          aria-current={lang === l ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </div>
+  <script is:inline>
+    const btn = document.getElementById('lang-menu-btn');
+    const menu = document.getElementById('lang-menu');
+    let open = false;
+    btn.addEventListener('click', () => {
+      open = !open;
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) menu.focus();
+    });
+    document.addEventListener('mousedown', (e) => {
+      if (open && !btn.contains(e.target) && !menu.contains(e.target)) {
+        open = false;
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    menu.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        open = false;
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    });
+  </script>
+</div>
+
