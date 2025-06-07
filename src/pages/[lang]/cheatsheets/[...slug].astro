@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticlePage from '../../../layouts/ArticlePage.astro';
+import { TOP_MENU } from '../../../utils/share';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pages = await getCollection(TOP_MENU.cheatsheets);
+
+  const paths = pages.map(page => {
+    const [lang, ...slug] = page.slug.split('/');
+    return { params: { lang, slug: slug.join('/') || undefined }, props: page };
+  });
+
+  return paths;
+}
+
+// const { lang, slug } = Astro.params;
+const page = Astro.props;
+---
+
+<BaseLayout title="Cheet Sheets">
+  <ArticlePage content={page} />
+</BaseLayout>

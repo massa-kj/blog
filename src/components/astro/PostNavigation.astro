@@ -1,5 +1,6 @@
 ---
 import { BASE_URL } from '../../utils/share';
+import { generateUrl } from '../../i18n/utils';
 
 interface PostLink {
   slug: string;
@@ -12,7 +13,7 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
 <div class="mt-12 grid grid-cols-2 gap-px rounded-md overflow-hidden">
   <!-- OLDER -->
   <a
-    href={prev ? `${BASE_URL}${collection}/${prev.slug}` : '#'}
+    href={prev ? `${BASE_URL}${generateUrl(collection, prev.slug)}` : '#'}
     class={`group flex flex-col justify-center bg-gray-900 p-4 border border-gray-700 transition ${
       prev ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
     }`}
@@ -25,7 +26,7 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
 
   <!-- NEWER -->
   <a
-    href={next ? `${BASE_URL}${collection}/${next.slug}` : '#'}
+    href={next ? `${BASE_URL}${generateUrl(collection, next.slug)}` : '#'}
     class={`group flex flex-col justify-center bg-gray-900 p-4 border border-gray-700 transition ${
       next ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
     } text-right`}

@@ -1,15 +1,23 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ArticleCard from '../components/astro/ArticleCard.astro';
-import { TOP_MENU } from '../utils/share';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/astro/ArticleCard.astro';
+import { TOP_MENU, SUPPORTED_LANGS } from '../../utils/share';
 import { getCollection } from 'astro:content';
 
+export async function getStaticPaths() {
+  return SUPPORTED_LANGS.map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
 const contents = await getCollection(TOP_MENU.articles);
+const filteredContents = contents.filter(
+  (content) => content.slug.startsWith(lang),
+);
 ---
 
 <BaseLayout>
   <section class="flex flex-col gap-6">
-    {contents
+    {filteredContents
       .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
       .map(({ data, collection, slug }) => (
         <ArticleCard 

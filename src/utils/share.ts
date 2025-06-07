@@ -1,5 +1,7 @@
 export const BASE_URL = import.meta.env.BASE_URL;
 
+export const SUPPORTED_LANGS = ['en', 'ja'];
+
 export const TOP_MENU = {
 	articles: 'articles',
 	cheatsheets: 'cheatsheets',

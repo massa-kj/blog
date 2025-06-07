@@ -6,14 +6,16 @@ import SidebarRight from './SidebarRight.astro';
 import MainContainer from './MainContainer.astro';
 
 import { BASE_URL } from '../utils/share';
+import { getLangFromUrl } from '../i18n/utils';
 
 import '../styles/global.css';
 
+const lang = getLangFromUrl(Astro.url);
 const { title = 'My Site', toc = null } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang={lang} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

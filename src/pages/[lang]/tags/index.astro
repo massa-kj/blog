@@ -1,8 +1,17 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { slugify } from '../../../utils/astro';
+import { BASE_URL, TOP_MENU } from '../../../utils/share';
 import { getCollection } from 'astro:content';
-import { slugify } from '../../utils/astro';
-import { BASE_URL, TOP_MENU } from '../../utils/share';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'ja' } },
+  ];
+}
+
+const { lang } = Astro.params;
 
 const [articles, cheatsheets] = await Promise.all([
   getCollection(TOP_MENU.articles),
@@ -31,7 +40,7 @@ const sortedTags = Array.from(tagMap.entries()).sort((a, b) =>
   <div class="flex flex-wrap gap-3">
     {sortedTags.map(([tag, entries]) => (
       <a
-        href={`${BASE_URL}tags/${slugify(tag)}`}
+        href={`${BASE_URL}${lang}/tags/${slugify(tag)}`}
         class="inline-block rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 transition hover:border-indigo-500 hover:bg-gray-700"
       >
         {tag} <span class="text-gray-400">({entries.length})</span>

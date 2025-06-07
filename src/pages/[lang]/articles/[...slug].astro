@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticlePage from '../../../layouts/ArticlePage.astro';
+import { TOP_MENU } from '../../../utils/share';
+import { generateToc } from '../../../utils/astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pages = await getCollection(TOP_MENU.articles);
+
+  const paths = pages.map(page => {
+    const [lang, ...slug] = page.slug.split('/');
+    return { params: { lang, slug: slug.join('/') || undefined }, props: page };
+  });
+
+  return paths;
+}
+
+const page = Astro.props;
+const toc = generateToc(page.rendered.metadata.headings);
+---
+
+<BaseLayout title="Articles" toc={toc} >
+  <ArticlePage content={page} />
+</BaseLayout>

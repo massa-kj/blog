@@ -1,8 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { BASE_URL } from '../utils/share';
-import { getLangFromUrl } from '../i18n/utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BASE_URL } from '../../utils/share';
+import { getLangFromUrl } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'ja' } },
+  ];
+}
 ---
 
 <BaseLayout title="404: Page not found">

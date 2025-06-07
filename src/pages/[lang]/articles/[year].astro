@@ -1,23 +1,24 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleCard from '../../components/astro/ArticleCard.astro';
-import { TOP_MENU } from '../../utils/share';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/astro/ArticleCard.astro';
+import { TOP_MENU } from '../../../utils/share';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection(TOP_MENU.articles);
+  const pages = await getCollection(TOP_MENU.articles);
 
-  const years = Array.from(new Set(
-    posts.map(entry => entry.id.split('/')[0]), // '2025/slug' → '2025'
-  ));
+  const paths = pages.map(page => {
+    const [lang, year, ...slug] = page.slug.split('/');
+	return { params: { lang, year, slug: slug.join('/') || undefined }, props: page };
+  });
 
-  return years.map(year => ({ params: { year } }));
+  return paths;
 }
 
-const { year } = Astro.params;
+const { lang, year } = Astro.params;
 const allEntries = await getCollection(TOP_MENU.articles);
 const entries = allEntries
-  .filter(entry => entry.id.startsWith(`${year}/`))
+  .filter(entry => entry.id.startsWith(`${lang}/${year}/`))
   .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
 ---
 

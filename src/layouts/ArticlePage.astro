@@ -4,6 +4,7 @@ import ContentContainer from './ContentContainer.astro';
 import PostNavigation from '../components/astro/PostNavigation.astro';
 import TagList from '../components/astro/TagList.astro';
 import { getCollection } from 'astro:content';
+import { getLangFromUrl } from '../i18n/utils';
 
 const { content } = Astro.props;
 const { data, render, collection, slug } = content;
@@ -11,11 +12,15 @@ const { data, render, collection, slug } = content;
 const { title, date, tags } = data;
 const { Content } = await render();
 
-const contents = (await getCollection(collection)).map((p) => ({
-  slug: p.slug,
-  title: p.data.title,
-  date: new Date(p.data.date),
-})).sort((a, b) => b.date.getTime() - a.date.getTime());
+const lang = getLangFromUrl(Astro.url);
+const contents = (await getCollection(collection))
+  .filter((p) => p.slug.split('/')[0] === lang)
+  .map((p) => ({
+    slug: p.slug,
+    title: p.data.title,
+    date: new Date(p.data.date),
+  }))
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
 const currentIndex = contents.findIndex(content => content.slug === slug);
 const prev = contents[currentIndex + 1];
 const next = contents[currentIndex - 1];

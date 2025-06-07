@@ -1,6 +1,7 @@
 ---
 import Breadcrumbs from '../components/astro/Breadcrumbs.astro';
 import Search from '../components/astro/Search.astro';
+// import LanguagePicker from '../components/astro/LanguagePicker.astro';
 
 const { title } = Astro.props;
 const path = Astro.url.pathname;
@@ -22,6 +23,8 @@ const isInvalidPage = title === '404: Page not found';
   <div class="hidden w-full items-center justify-between md:flex">
     <Breadcrumbs path={path} isInvalidPage={isInvalidPage} />
   </div>
+
+  <!-- <LanguagePicker class="" /> -->
 
   <!-- (Common) search -->
   <Search />

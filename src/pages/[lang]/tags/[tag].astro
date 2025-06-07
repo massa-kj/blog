@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleCard from '../../components/astro/ArticleCard.astro';
-import { TOP_MENU } from '../../utils/share';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/astro/ArticleCard.astro';
+import { TOP_MENU } from '../../../utils/share';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -10,24 +10,31 @@ export async function getStaticPaths() {
     getCollection(TOP_MENU.cheatsheets),
   ]);
 
-  const allTags = [...articles, ...cheatsheets]
-    .flatMap(entry => entry.data.tags || [])
-    .map(tag => tag.toLowerCase());
+  const allEntries = [...articles, ...cheatsheets];
 
-  const uniqueTags = Array.from(new Set(allTags));
+  const tagLangPairs = allEntries.flatMap(entry =>
+    (entry.data.tags || []).map(tag => ({
+      lang: entry.slug.split('/')[0],
+      tag: tag.toLowerCase(),
+    })),
+  );
 
-  return uniqueTags.map(tag => ({
-    params: { tag },
+  const uniquePairs = Array.from(
+    new Map(tagLangPairs.map(pair => [`${pair.lang}:${pair.tag}`, pair])).values(),
+  );
+
+  return uniquePairs.map(({ lang, tag }) => ({
+    params: { lang, tag },
   }));
 }
 
-const { tag } = Astro.params;
+const { lang, tag } = Astro.params;
 const [articles, cheatsheets] = await Promise.all([
   getCollection(TOP_MENU.articles),
   getCollection(TOP_MENU.cheatsheets),
 ]);
 
-const allEntries = [...articles, ...cheatsheets];
+const allEntries = [...articles, ...cheatsheets].filter(entry => entry.slug.startsWith(lang));
 
 const filtered = allEntries.filter(entry =>
   (entry.data.tags || []).map(t => t.toLowerCase()).includes(tag.toLowerCase()),

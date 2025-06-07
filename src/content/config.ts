@@ -17,7 +17,13 @@ const cheatsheets = defineCollection({
   }),
 });
 
+const singlepages = defineCollection({
+  schema: z.object({
+  }),
+});
+
 export const collections = {
   articles,
   cheatsheets,
+	singlepages,
 };

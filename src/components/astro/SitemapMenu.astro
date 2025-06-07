@@ -1,7 +1,9 @@
 ---
 import { BASE_URL, MENU_DEFINITION } from '../../utils/share';
+import { getLangFromUrl } from '../../i18n/utils';
 
 const { currentPath } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 
 function isActive(path: string): boolean {
   return currentPath.includes(path);
@@ -14,7 +16,7 @@ function isActive(path: string): boolean {
       <details class="" {item.children ? '' : 'open'}>
         <summary class="flex items-center justify-between cursor-pointer hover:bg-gray-800 rounded">
           <a
-            href=`${BASE_URL}${item.path.substring(1)}`
+            href=`${BASE_URL}${lang}/${item.path.substring(1)}`
             class={`flex-1 block px-4 py-2 rounded transition hover:bg-gray-700 ${isActive(item.path) ? 'text-indigo-400 font-semibold' : ''}`}
           >
             {item.label}
@@ -37,7 +39,7 @@ function isActive(path: string): boolean {
             {item.children.map(child => (
               <li>
                 <a
-                  href=`${BASE_URL}${child.path.substring(1)}`
+                  href=`${BASE_URL}${lang}/${child.path.substring(1)}`
                   class={`block px-4 py-2 rounded transition hover:bg-gray-700 ${
                     isActive(child.path) ? 'text-indigo-400 font-semibold' : ''
                   }`}

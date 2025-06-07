@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentContainer from '../../layouts/ContentContainer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('singlepages');
+
+  const paths = pages.map(page => {
+    const [lang, ...slug] = page.slug.split('/');
+    return { params: { lang, slug: slug.join('/') || undefined }, props: page };
+  });
+
+  return paths;
+}
+
+// const { lang, slug } = Astro.params;
+const page = Astro.props;
+const { render } = page;
+
+const { Content } = await render();
+---
+
+<BaseLayout title="About">
+  <ContentContainer>
+	<Content />
+  </ContentContainer>
+</BaseLayout>
