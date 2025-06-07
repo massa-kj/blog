@@ -1,3 +1,4 @@
+import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import astro from 'eslint-plugin-astro';
@@ -38,6 +39,14 @@ export default [
       parser: tseslint.parser,
       parserOptions: {
         project: true,
+      },
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        // document, localStorage, etc. are recognized globally
+        ...globals.browser,
+        ...globals.node,
+        myCustomGlobal: 'readonly',
       },
     },
     rules: {
