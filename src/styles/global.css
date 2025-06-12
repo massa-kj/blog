@@ -2,11 +2,79 @@
 @import "tailwindcss" source('./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}');
 @plugin '@tailwindcss/typography';
 
+/* The Tailwind plugin now applies utility classes with the `dark:` prefix to elements under the `.dark` class. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
+  /* ----------------------- */
+  /* Colors                  */
+  /* ----------------------- */
+  --color-bg: theme(colors.zinc.50);               /* Global background */
+  --color-surface: theme(colors.white);            /* Main, cards, etc. */
+  --color-surface-variant: theme(colors.zinc.100); /* Sidebar, lists, etc. */
+  --color-border: theme(colors.zinc.200);          /* Borders */
+  --color-primary: theme(colors.blue.600);         /* Accent (buttons, etc.) */
+  --color-primary-hover: theme(colors.blue.700);   /* On hover */
+  --color-secondary: theme(colors.teal.600);       /* Secondary */
+  --color-text: theme(colors.zinc.900);            /* Main text */
+  --color-muted: theme(colors.zinc.500);           /* Sub text */
+  --color-link: theme(colors.blue.700);            /* Links */
+  --color-tag-bg: theme(colors.zinc.200);          /* Tag background */
+  --color-tag-text: theme(colors.zinc.800);        /* Tag text */
+
+  /* Icon */
+  --color-icon: theme(colors.blue.600);
+
+  /* ----------------------- */
+  /* Font                    */
+  /* ----------------------- */
+  /* --font-sans: theme(fontFamily.sans); */
+  /* --font-mono: theme(fontFamily.mono); */
+
+  /* ----------------------- */
+  /* Spacing                 */
+  /* ----------------------- */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 2rem;      /* 32px */
+  --space-xl: 4rem;      /* 64px */
+  --header-height: 4rem;   /* Header height */
+  --sidebar-width: 15rem;    /* Sidebar width */
+  --rightbar-width: 16rem;   /* Right sidebar width */
+  /* temp */
   --spacing-header: 4rem;
   --spacing-left-sidebar: 70vw;
   --spacing-left-sidebar-md: 22rem;
   --spacing-right-sidebar: 16rem;
+
+  /* ----------------------- */
+  /* Border, Shadow          */
+  /* ----------------------- */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 1rem;      /* 16px */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 12px 0 rgb(0 0 0 / 0.08);
+}
+
+/* ----------------------- */
+/* Dark Mode               */
+/* ----------------------- */
+.dark {
+  --color-bg: theme(colors.zinc.950);               /* Global background */
+  --color-surface: theme(colors.zinc.900);          /* Main, cards, etc. */
+  --color-surface-variant: theme(colors.zinc.800);  /* Sidebar, lists, etc. */
+  --color-border: theme(colors.zinc.700);           /* Borders */
+  --color-primary: theme(colors.blue.400);          /* Accent */
+  --color-primary-hover: theme(colors.blue.300);    /* On hover */
+  --color-secondary: theme(colors.teal.400);        /* Secondary */
+  --color-text: theme(colors.zinc.100);             /* Main text */
+  --color-muted: theme(colors.zinc.400);            /* Sub text */
+  --color-link: theme(colors.blue.300);             /* Links */
+  --color-tag-bg: theme(colors.zinc.700);           /* Tag background */
+  --color-tag-text: theme(colors.zinc.100);         /* Tag text */
+  --color-icon: theme(colors.blue.400);             /* Icon color */
 }
 
 summary {
