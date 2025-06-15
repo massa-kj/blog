@@ -2,6 +2,7 @@
 import Breadcrumbs from '../components/astro/Breadcrumbs.astro';
 import Search from '../components/astro/Search.astro';
 import LanguageSwitcher from '../components/astro/LanguageSwitcher.astro';
+import ThemeToggle from '../components/astro/ThemeToggle.astro';
 
 const { title } = Astro.props;
 const path = Astro.url.pathname;
@@ -25,6 +26,8 @@ const isInvalidPage = title === '404: Page not found';
   </div>
 
   <LanguageSwitcher />
+
+  <ThemeToggle />
 
   <!-- (Common) search -->
   <Search />
