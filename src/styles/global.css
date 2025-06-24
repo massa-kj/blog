@@ -121,6 +121,9 @@
   .sidebar-left-content {
     @apply flex flex-col h-full bg-gray-800 text-gray-100;
   }
+  .sidebar-left-toggle {
+    @apply absolute -top-20 opacity-0;
+  }
 
   .sidebar-right {
     @apply hidden xl:block w-64 h-full fixed right-0 top-16;
@@ -160,6 +163,9 @@
     /* margin: var(--space-lg) 0; */
     /* flex: 1 1 0; */
     /* min-width: 0; */
+  }
+  .main-content {
+    @apply flex-1 w-full max-w-3xl mx-auto px-6 py-8;
   }
 
   .my-prose {

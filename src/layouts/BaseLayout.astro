@@ -35,7 +35,7 @@ const { title = 'My Site', toc = null } = Astro.props;
   </head>
   <body data-base-url={BASE_URL}>
     <!-- Left Sidebar Toggle -->
-    <input type="checkbox" id="menu-toggle" class="peer absolute -top-20 opacity-0" />
+    <input type="checkbox" id="menu-toggle" class="peer sidebar-left-toggle" />
     <!-- Header -->
     <header id="header" class="header">
       <Header title={title} />
@@ -50,13 +50,10 @@ const { title = 'My Site', toc = null } = Astro.props;
     </aside>
     <!-- Content -->
     <!-- Shifts when sidebar opens on mobile -->
-    <main
-      class="main-area">
-      <div class="flex-1 w-full max-w-3xl mx-auto">
-        <MainContainer>
-          <slot />
-        </MainContainer>
-      </div>
+    <main class="main-area">
+      <MainContainer>
+        <slot />
+      </MainContainer>
       <Footer />
     </main>
   </body>
