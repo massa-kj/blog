@@ -27,11 +27,11 @@ const next = contents[currentIndex - 1];
 ---
 
 <SearchableContainer>
-  <header class="mb-6">
+  <div class="mb-6">
     <h2 class="text-3xl font-bold mb-2 break-words">{title}</h2>
     <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
     <TagList tags={tags} />
-  </header>
+  </div>
   <ContentContainer>
     <Content />
   </ContentContainer>
