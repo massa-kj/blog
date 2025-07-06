@@ -1,5 +1,5 @@
 # blog
 
-[Go to site](https://compqx7.github.io/blog/)
+[Go to site](https://massa-kj.github.io/blog/)
 
 
