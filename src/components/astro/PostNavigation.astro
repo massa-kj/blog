@@ -15,10 +15,10 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
   <a
     href={prev ? `${BASE_URL}${generateUrl(collection, prev.slug)}` : '#'}
     class={`post-nav-btn group flex flex-col justify-center p-4 border border-gray-700 transition ${
-      prev ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
+      prev ? 'hover:bg-indigo-700 hover:text-white' : 'cursor-default'
     }`}
   >
-    <span class="text-xs text-gray-500 group-hover:text-gray-200">OLDER</span>
+    <span class="text-xs group-hover:text-gray-200">OLDER</span>
     <span class="mt-1 text-sm font-medium leading-snug break-words">
       {prev?.title || '-'}
     </span>
@@ -28,10 +28,10 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
   <a
     href={next ? `${BASE_URL}${generateUrl(collection, next.slug)}` : '#'}
     class={`post-nav-btn group flex flex-col justify-center p-4 border border-gray-700 transition ${
-      next ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
+      next ? 'hover:bg-indigo-700 hover:text-white' : 'cursor-default'
     } text-right`}
   >
-    <span class="text-xs text-gray-500 group-hover:text-gray-200">NEWER</span>
+    <span class="text-xs group-hover:text-gray-200">NEWER</span>
     <span class="mt-1 text-sm font-medium leading-snug break-words">
       {next?.title || '-'}
     </span>

@@ -69,7 +69,7 @@
   --color-primary: theme(colors.blue.400);          /* Accent */
   --color-primary-hover: theme(colors.blue.300);    /* On hover */
   --color-secondary: theme(colors.teal.400);        /* Secondary */
-  --color-text: theme(colors.zinc.100);             /* Main text */
+  --color-text: theme(colors.gray.100);             /* Main text */
   --color-muted: theme(colors.zinc.400);            /* Sub text */
   --color-link: theme(colors.blue.300);             /* Links */
   --color-tag-bg: theme(colors.zinc.700);           /* Tag background */
@@ -79,7 +79,7 @@
 
 @layer base {
   body {
-    @apply text-gray-100 antialiased;
+    @apply antialiased;
     background-color: var(--color-bg);
     color: var(--color-text);
     /* min-height: 100vh; */
@@ -120,7 +120,7 @@
     /* gap: var(--space-lg); */
   }
   .sidebar-left-content {
-    @apply flex flex-col h-full bg-gray-800 text-gray-100;
+    @apply flex flex-col h-full bg-gray-800;
   }
   .sidebar-left-toggle {
     @apply absolute -top-20 opacity-0;
@@ -130,7 +130,7 @@
     @apply hidden xl:block w-64 h-full fixed right-0 top-16;
   }
   .sidebar-right-content {
-    @apply h-full overflow-y-auto p-4 text-white border-l border-gray-800;
+    @apply h-full overflow-y-auto p-4 border-l border-gray-800;
     background-color: var(--color-bg);
   }
 
@@ -176,7 +176,7 @@
   }
 
   .footer {
-    @apply p-4 mt-12 text-center text-sm text-gray-500;
+    @apply p-4 mt-12 text-center text-sm;
     /* color: var(--color-muted); */
     /* padding: var(--space-md) 0; */
     /* border-top: 1px solid var(--color-border); */

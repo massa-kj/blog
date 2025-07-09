@@ -43,7 +43,7 @@ const sortedTags = Array.from(tagMap.entries()).sort((a, b) =>
         href={`${BASE_URL}${lang}/tags/${slugify(tag)}`}
         class="inline-block rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 transition hover:border-indigo-500 hover:bg-gray-700"
       >
-        {tag} <span class="text-gray-400">({entries.length})</span>
+        {tag} <span class="">({entries.length})</span>
       </a>
     ))}
   </div>

@@ -26,13 +26,13 @@ const parts = path
   });
 ---
 
-<nav class="text-sm text-gray-400" aria-label="Breadcrumb">
+<nav class="text-sm" aria-label="Breadcrumb">
   <ol class="flex flex-wrap gap-1">
     {isInvalidPage ? (
       <li class="flex items-center gap-1">
         <a href={`${BASE_URL}${lang}/articles`} class="hover:text-indigo-400 underline">Home</a>
         <span>&gt;</span>
-        <span class="text-gray-300">404</span>
+        <span class="">404</span>
       </li>
     ) : (
       parts.map((crumb, i) => (
@@ -41,7 +41,7 @@ const parts = path
           {crumb.href ? (
             <a href={crumb.href} class="hover:text-indigo-400 underline">{crumb.label}</a>
           ) : (
-            <span class="text-gray-300">{crumb.label}</span>
+            <span class="">{crumb.label}</span>
           )}
         </li>
       ))

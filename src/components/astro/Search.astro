@@ -5,7 +5,7 @@
   <!-- Search Icon -->
   <button
     id="open-search"
-    class="text-white hover:text-indigo-400"
+    class="hover:text-indigo-400"
     aria-label="Open Search"
   >
     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@
       id="search-container"
       class="w-full max-w-xl bg-gray-900 p-6 rounded shadow-lg relative mx-4 opacity-0 scale-95 transition-all duration-200 overflow-y-auto max-h-[90vh]"
     >
-      <button id="close-search" class="absolute ml-4 -top-1 right-1 text-gray-400 hover:text-white text-2xl" aria-label="Close Search">
+      <button id="close-search" class="absolute ml-4 -top-1 right-1 hover:text-white text-2xl" aria-label="Close Search">
         &times;
       </button>
 
@@ -31,7 +31,7 @@
         id="search"
         type="search"
         placeholder="Search..."
-        class="w-full rounded bg-gray-800 text-white border border-gray-600 py-2 px-3 text-sm focus:outline-none"
+        class="w-full rounded bg-gray-800 border border-gray-600 py-2 px-3 text-sm focus:outline-none"
       />
 
       <div
@@ -103,8 +103,8 @@
 
     searchResults.innerHTML = items.map(item => `
       <a href="${item.url}" class="block p-4 rounded-lg bg-gray-800 hover:bg-indigo-600 transition-colors border border-gray-700">
-        <h3 class="text-base font-semibold text-white">${item.meta.title}</h3>
-        <p class="text-sm text-gray-400 mt-1">${item.excerpt}</p>
+        <h3 class="text-base font-semibold">${item.meta.title}</h3>
+        <p class="text-sm mt-1">${item.excerpt}</p>
       </a>
     `).join("");
 
