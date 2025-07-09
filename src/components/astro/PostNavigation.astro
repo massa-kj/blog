@@ -14,7 +14,7 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
   <!-- OLDER -->
   <a
     href={prev ? `${BASE_URL}${generateUrl(collection, prev.slug)}` : '#'}
-    class={`group flex flex-col justify-center bg-gray-900 p-4 border border-gray-700 transition ${
+    class={`post-nav-btn group flex flex-col justify-center p-4 border border-gray-700 transition ${
       prev ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
     }`}
   >
@@ -27,7 +27,7 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
   <!-- NEWER -->
   <a
     href={next ? `${BASE_URL}${generateUrl(collection, next.slug)}` : '#'}
-    class={`group flex flex-col justify-center bg-gray-900 p-4 border border-gray-700 transition ${
+    class={`post-nav-btn group flex flex-col justify-center p-4 border border-gray-700 transition ${
       next ? 'hover:bg-indigo-700 hover:text-white' : 'text-gray-600 cursor-default'
     } text-right`}
   >

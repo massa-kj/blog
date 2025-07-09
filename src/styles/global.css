@@ -9,7 +9,7 @@
   /* ----------------------- */
   /* Colors                  */
   /* ----------------------- */
-  --color-bg: theme(colors.zinc.50);               /* Global background */
+  --color-bg: theme(colors.orange.100);               /* Global background */
   --color-surface: theme(colors.white);            /* Main, cards, etc. */
   --color-surface-variant: theme(colors.zinc.100); /* Sidebar, lists, etc. */
   --color-border: theme(colors.zinc.200);          /* Borders */
@@ -62,7 +62,7 @@
 /* Dark Mode               */
 /* ----------------------- */
 .dark {
-  --color-bg: theme(colors.zinc.950);               /* Global background */
+  --color-bg: theme(colors.gray.900);               /* Global background */
   --color-surface: theme(colors.zinc.900);          /* Main, cards, etc. */
   --color-surface-variant: theme(colors.zinc.800);  /* Sidebar, lists, etc. */
   --color-border: theme(colors.zinc.700);           /* Borders */
@@ -79,11 +79,12 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-gray-100 antialiased;
+    @apply text-gray-100 antialiased;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     /* min-height: 100vh; */
-    /* margin: 0; */
-    /* padding: 0; */
-    /* background: none; */
+    margin: 0;
+    padding: 0;
   }
 
   summary {
@@ -129,7 +130,8 @@
     @apply hidden xl:block w-64 h-full fixed right-0 top-16;
   }
   .sidebar-right-content {
-    @apply h-full overflow-y-auto p-4 bg-gray-900 text-white border-l border-gray-800;
+    @apply h-full overflow-y-auto p-4 text-white border-l border-gray-800;
+    background-color: var(--color-bg);
   }
 
   .header {
@@ -180,6 +182,10 @@
     /* border-top: 1px solid var(--color-border); */
     /* background: var(--color-surface-variant); */
     /* margin-top: var(--space-lg); */
+  }
+
+  .post-nav-btn {
+    background-color: var(--color-bg);
   }
 }
 
