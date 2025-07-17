@@ -9,7 +9,7 @@ const { toc = [] } = Astro.props;
       {toc?.map(item => (
         <li class={`ml-${(item.level - 2) * 4}`}>
           <details class={item.level === 2 ? 'mb-1' : 'ml-2'} open>
-            <summary class="cursor-pointer hover:text-indigo-400">
+            <summary class="cursor-pointer hoverable-text">
               <a href={`#${item.id}`}>{item.text}</a>
             </summary>
           </details>

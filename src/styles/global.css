@@ -11,7 +11,7 @@
   /* ----------------------- */
   --color-bg: theme(colors.orange.100);               /* Global background */
   --color-surface: theme(colors.white);            /* Main, cards, etc. */
-  --color-surface-variant: theme(colors.zinc.100); /* Sidebar, lists, etc. */
+  --color-surface-variant: theme(colors.orange.200); /* Sidebar, lists, etc. */
   --color-border: theme(colors.zinc.200);          /* Borders */
   --color-primary: theme(colors.blue.600);         /* Accent (buttons, etc.) */
   --color-primary-hover: theme(colors.blue.700);   /* On hover */
@@ -64,7 +64,7 @@
 .dark {
   --color-bg: theme(colors.gray.900);               /* Global background */
   --color-surface: theme(colors.zinc.900);          /* Main, cards, etc. */
-  --color-surface-variant: theme(colors.zinc.800);  /* Sidebar, lists, etc. */
+  --color-surface-variant: theme(colors.gray.800);  /* Sidebar, lists, etc. */
   --color-border: theme(colors.zinc.700);           /* Borders */
   --color-primary: theme(colors.blue.400);          /* Accent */
   --color-primary-hover: theme(colors.blue.300);    /* On hover */
@@ -97,7 +97,7 @@
 
 @layer components {
   .site-title {
-    @apply flex h-header items-center px-6 text-2xl font-extrabold hover:text-indigo-400;
+    @apply flex h-header items-center px-6 text-2xl font-extrabold;
     /* font-size: 1.5rem; */
     /* font-weight: 800; */
     /* letter-spacing: -0.03em; */
@@ -120,7 +120,8 @@
     /* gap: var(--space-lg); */
   }
   .sidebar-left-content {
-    @apply flex flex-col h-full bg-gray-800;
+    @apply flex flex-col h-full;
+    background-color: var(--color-surface-variant);
   }
   .sidebar-left-toggle {
     @apply absolute -top-20 opacity-0;
@@ -186,6 +187,15 @@
 
   .post-nav-btn {
     background-color: var(--color-bg);
+  }
+
+  .card {
+    @apply rounded-lg block p-6 border border-gray-700 transition hover:border-indigo-500 hover:bg-gray-700;
+    background-color: var(--color-surface-variant);
+  }
+
+  .hoverable-text {
+    @apply hover:text-indigo-400 group-hover:text-indigo-400 transition
   }
 }
 

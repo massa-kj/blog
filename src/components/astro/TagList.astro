@@ -14,7 +14,7 @@ const lang = getLangFromUrl(Astro.url);
         href={`${BASE_URL}${lang}/tags/${slugify(tag)}`}
         class="inline-block rounded-lg border border-gray-700 bg-gray-800 p-2 transition hover:border-indigo-500 hover:bg-gray-700"
       >
-	  <span class="text-white group-hover:text-indigo-400 break-words">{tag}</span>
+	  <span class="hoverable-text text-white break-words">{tag}</span>
       </a>
     ))}
   </div>

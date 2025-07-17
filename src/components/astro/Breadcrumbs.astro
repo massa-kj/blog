@@ -30,7 +30,7 @@ const parts = path
   <ol class="flex flex-wrap gap-1">
     {isInvalidPage ? (
       <li class="flex items-center gap-1">
-        <a href={`${BASE_URL}${lang}/articles`} class="hover:text-indigo-400 underline">Home</a>
+        <a href={`${BASE_URL}${lang}/articles`} class="hoverable-text underline">Home</a>
         <span>&gt;</span>
         <span class="">404</span>
       </li>
@@ -39,7 +39,7 @@ const parts = path
         <li class="flex items-center gap-1" key={i}>
           {i > 0 && <span>&gt;</span>}
           {crumb.href ? (
-            <a href={crumb.href} class="hover:text-indigo-400 underline">{crumb.label}</a>
+            <a href={crumb.href} class="hoverable-text underline">{crumb.label}</a>
           ) : (
             <span class="">{crumb.label}</span>
           )}
