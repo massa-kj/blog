@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node 24
         uses: actions/setup-node@v4
         with:
-          node-version: 24        # latest LTS (2025-05)
+          node-version: 22.17.1
 
       - name: Enable pnpm
         uses: pnpm/action-setup@v3
@@ -36,9 +36,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
-      - name: Prune dependencies
-        run: pnpm prune
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
