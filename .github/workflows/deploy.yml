@@ -26,7 +26,7 @@ jobs:
       - name: Enable pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 10.10.0            # matches packageManager field in package.json
+          version: 10.8.0            # matches packageManager field in package.json
           run_install: false          # run manually
 
       - name: Cache pnpm store
@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline --reporter=silent
+        run: pnpm install
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
 
