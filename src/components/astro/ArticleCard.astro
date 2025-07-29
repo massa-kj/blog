@@ -5,7 +5,7 @@ const { title, description, pubDate, collection, slug } = Astro.props;
 ---
 
 <a href={`${BASE_URL}${generateUrl(collection, slug)}`} class="card group">
-  <h2 class="hoverable-text text-xl font-bold break-words">
+  <h2 class="hoverable-text card-title">
     {title}
   </h2>
   <p class="mt-2 text-sm">{description}</p>
