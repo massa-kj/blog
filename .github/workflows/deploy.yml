@@ -18,9 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node 24
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
+          # (2025/07/26) In v24.x, there was also an update to the v8 engine, and some tools may not be compatible yet, resulting in Out of Memory errors.
           node-version: 22.17.1
 
       - name: Enable pnpm
