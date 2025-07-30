@@ -185,17 +185,32 @@
     /* margin-top: var(--space-lg); */
   }
 
+  .link-btn {
+    @apply inline-block rounded-lg border p-2 transition;
+    background-color: var(--color-surface-variant);
+    color: var(--color-border);
+  }
+  .link-btn:hover {
+    background-color: var(--color-bg);
+    color: var(--color-primary-hover);
+  }
+
   .post-nav-btn {
     background-color: var(--color-bg);
   }
 
   .card {
-    @apply rounded-lg block p-6 border border-gray-700 transition hover:border-indigo-500 hover:bg-gray-700;
+    @apply rounded-lg block p-6 border transition;
     background-color: var(--color-surface-variant);
-  }
+    border-color: var(--color-border);
 
-  .card-title {
-    @apply text-xl font-bold break-words
+    .card-title {
+      @apply text-xl font-bold break-words
+    }
+  }
+  .card:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-primary);
   }
 
   .page-title {
@@ -203,7 +218,11 @@
   }
 
   .hoverable-text {
-    @apply hover:text-indigo-400 group-hover:text-indigo-400 transition
+    @apply transition
+  }
+  .hoverable-text:hover,
+  .group:hover .hoverable-text {
+    color: var(--color-primary);
   }
 }
 
