@@ -14,8 +14,8 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
   <!-- OLDER -->
   <a
     href={prev ? `${BASE_URL}${generateUrl(collection, prev.slug)}` : '#'}
-    class={`post-nav-btn group flex flex-col justify-center p-4 border border-gray-700 transition ${
-      prev ? 'hover:bg-indigo-700 hover:text-white' : 'cursor-default'
+    class={`post-nav-btn group ${
+      prev ? 'post-nav-btn-hoverable' : 'cursor-default'
     }`}
   >
     <span class="text-xs group-hover:text-gray-200">OLDER</span>
@@ -27,8 +27,8 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
   <!-- NEWER -->
   <a
     href={next ? `${BASE_URL}${generateUrl(collection, next.slug)}` : '#'}
-    class={`post-nav-btn group flex flex-col justify-center p-4 border border-gray-700 transition ${
-      next ? 'hover:bg-indigo-700 hover:text-white' : 'cursor-default'
+    class={`post-nav-btn group ${
+      next ? 'post-nav-btn-hoverable' : 'cursor-default'
     } text-right`}
   >
     <span class="text-xs group-hover:text-gray-200">NEWER</span>
