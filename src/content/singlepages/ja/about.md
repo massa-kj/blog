@@ -3,22 +3,112 @@ title: About
 description: My background, goals, and the tech that excites me.
 ---
 
-## 私
+## サイト管理人について
 
-test
+コードやシステム設計、開発環境について考えることが好きです。
+Webアプリケーション開発、クラウドインフラ構築、データ分析、開発者向けツール改善など幅広く携わってます。  
 
-### h3 header
+---
 
-test
+## 最近の興味
 
-```js
-const a = 100;
-console.log(a);
-```
+- OSS貢献、NeoVim、Rust、TypeScript、React、IaC  
+- dotfilesによる開発環境管理・最適化  
+- 低レイヤー開発（シェル、Lisp風言語等）、静的サイト生成、開発体験向上の工夫  
 
-## This Site
+---
 
-The contents of this website reflect my personal views and are provided for informational purposes only. While I strive for accuracy, I make no guarantees regarding the completeness or correctness of the information.
+## 職務経歴
 
-I shall not be held responsible for any damages or losses resulting from the use of the information provided on this site. Please use the information at your own discretion and risk.
+### IQVIA Japan  
+
+**2023年10月 ～ 現在**
+
+Webアプリケーション開発、クラウドインフラ、データ分析、開発支援ツール開発で貢献。
+
+#### Webアプリケーション開発
+
+- **React** と **REST API** を用いた自社プロダクトの開発  
+- 再利用可能なUIコンポーネントと状態管理の設計  
+- ライブラリ等の更新・脆弱性情報監視、最新化対応
+
+#### クラウドインフラ（AWS）
+
+- **AWS（EC2, Route 53, Lambda, S3 など）** によるインフラ設計・構築・運用  
+- Infrastructure as Code による自動化・環境構築  
+- 監視・スケーラビリティの改善  
+
+#### データ分析
+
+- **Amazon QuickSight** によるダッシュボード設計・構築  
+- より良いビジネス意思決定を促すビジュアルの提案  
+
+#### 開発体験・ツール整備
+
+- ビルドツールを **pnpm** に移行し、ビルド時間・CIコストを削減  
+- ReactコンポーネントのJSDocコメントを解析して静的サイトを生成するスクリプトを開発  
+- CI/CDやローカル開発環境の改善  
+
+---
+
+### SES案件（客先常駐・受託）  
+
+**2020年10月 ～ 2023年9月**  
+官公庁、物流、金融、保険など、さまざまな業種のクライアント向けシステム開発に従事。
+
+<details class="">
+<summary>主な開発プロジェクト一覧</summary>
+
+#### ローコードプラットフォームのカスタマイズ  
+
+*2022年9月 ～ 2023年1月*  
+- チームリーダーとしてスクリプトレビューを担当  
+- **JavaScript**
+
+#### 勤怠管理システム  
+
+*2022年8月 ～ 2023年3月*  
+- アーキテクチャ設計とドメイン設計を主導  
+- **Java**, **Spring**, **Thymeleaf**, **MySQL**, **Bootstrap**
+
+#### 港湾物流 最適配置システム  
+
+*2022年4月 ～ 2023年3月*  
+- 既存システムにUIおよびWebAPIを追加  
+- **C#**, **.NET Core**, **VB6**, **Oracle DB**
+
+#### 官公庁向けポイント管理システム  
+
+*2021年8月 ～ 2022年3月*  
+- 要件定義および技術調査を担当  
+- **Java**, **Spring Batch**, **AWS**, **Python**, **Oracle DB**
+
+#### 企業分析ツール（個人開発）  
+
+*2020年10月 ～ 2021年3月*  
+- スクレイピング、XBRL解析、可視化、機械学習予測  
+- **Python**, **Selenium**, **pandas**, **matplotlib**, **SQLite**
+
+</details>
+
+その他、並行していくつかのシステムの開発にも携わっていたのですが、思い出せません…。
+
+---
+
+### その他の職歴（非IT系）
+
+**2012年4月 ～ 2021年9月**
+
+- リユースショップでの販売業務  
+- 市役所勤務（保育所運営・新型コロナ対応）  
+
+---
+
+## このサイトについて
+
+本サイトの内容は個人の見解であり、情報提供を目的としています。  
+正確性には努めておりますが、内容の完全性・正確性を保証するものではありません。
+
+本サイトの情報に基づいて生じたいかなる損害・損失についても責任を負いかねます。  
+ご利用は自己責任にてお願いいたします。
 
