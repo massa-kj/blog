@@ -14,7 +14,7 @@ const lang = getLangFromUrl(Astro.url);
         href={`${BASE_URL}${lang}/tags/${slugify(tag)}`}
         class="tag-btn"
       >
-        <span class="hoverable-text text-white break-words">{tag}</span>
+        <span class="hoverable-text break-words">{tag}</span>
       </a>
     ))}
   </div>
