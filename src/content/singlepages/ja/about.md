@@ -5,16 +5,17 @@ description: My background, goals, and the tech that excites me.
 
 ## サイト管理人について
 
-コードやシステム設計、開発環境について考えることが好きです。
+コードやシステム設計、開発環境について考えることが好きです。  
 Webアプリケーション開発、クラウドインフラ構築、データ分析、開発者向けツール改善など幅広く携わってます。  
+子供たちが寝静まってから活動することが多いです。  
 
 ---
 
 ## 最近の興味
 
-- OSS貢献、NeoVim、Rust、TypeScript、React、IaC  
-- dotfilesによる開発環境管理・最適化  
-- 低レイヤー開発（シェル、Lisp風言語等）、静的サイト生成、開発体験向上の工夫  
+- 低レイヤー開発（シェル、Lisp風言語等）  
+- 開発体験向上の工夫、dotfilesによる開発環境管理・最適化、NeoVim + VSCode  
+- OSS貢献、Rust、TypeScript、React、IaC  
 
 ---
 
@@ -28,24 +29,24 @@ Webアプリケーション開発、クラウドインフラ、データ分析�
 
 #### Webアプリケーション開発
 
-- **React** と **REST API** を用いた自社プロダクトの開発  
+- React と REST API を用いた自社プロダクトの開発  
 - 再利用可能なUIコンポーネントと状態管理の設計  
 - ライブラリ等の更新・脆弱性情報監視、最新化対応
 
 #### クラウドインフラ（AWS）
 
-- **AWS（EC2, Route 53, Lambda, S3 など）** によるインフラ設計・構築・運用  
+- AWS（EC2, Route 53, Lambda, S3 など） によるインフラ設計・構築・運用  
 - Infrastructure as Code による自動化・環境構築  
 - 監視・スケーラビリティの改善  
 
 #### データ分析
 
-- **Amazon QuickSight** によるダッシュボード設計・構築  
+- Amazon QuickSight によるダッシュボード設計・構築  
 - より良いビジネス意思決定を促すビジュアルの提案  
 
 #### 開発体験・ツール整備
 
-- ビルドツールを **pnpm** に移行し、ビルド時間・CIコストを削減  
+- ビルドツールを pnpm に移行し、ビルド時間・CIコストを削減  
 - ReactコンポーネントのJSDocコメントを解析して静的サイトを生成するスクリプトを開発  
 - CI/CDやローカル開発環境の改善  
 
@@ -63,31 +64,31 @@ Webアプリケーション開発、クラウドインフラ、データ分析�
 
 *2022年9月 ～ 2023年1月*  
 - チームリーダーとしてスクリプトレビューを担当  
-- **JavaScript**
+- JavaScript
 
 #### 勤怠管理システム  
 
 *2022年8月 ～ 2023年3月*  
 - アーキテクチャ設計とドメイン設計を主導  
-- **Java**, **Spring**, **Thymeleaf**, **MySQL**, **Bootstrap**
+- Java, Spring, Thymeleaf, MySQL, Bootstrap
 
 #### 港湾物流 最適配置システム  
 
 *2022年4月 ～ 2023年3月*  
 - 既存システムにUIおよびWebAPIを追加  
-- **C#**, **.NET Core**, **VB6**, **Oracle DB**
+- C#, .NET Core, VB6, Oracle DB
 
 #### 官公庁向けポイント管理システム  
 
 *2021年8月 ～ 2022年3月*  
 - 要件定義および技術調査を担当  
-- **Java**, **Spring Batch**, **AWS**, **Python**, **Oracle DB**
+- Java, Spring Batch, AWS, Python, Oracle DB
 
 #### 企業分析ツール（個人開発）  
 
 *2020年10月 ～ 2021年3月*  
 - スクレイピング、XBRL解析、可視化、機械学習予測  
-- **Python**, **Selenium**, **pandas**, **matplotlib**, **SQLite**
+- Python, Selenium, pandas, matplotlib, SQLite
 
 </details>
 

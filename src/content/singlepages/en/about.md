@@ -7,14 +7,15 @@ description: My background, goals, and the tech that excites me.
 
 I enjoy thinking about code, system design, and development environments.
 I'm involved in a wide range of work, including web application development, cloud infrastructure construction, data analysis, and improving developer tools.
+I usually do my activities after my children have gone to bed.
 
 ---
 
 ## Recent Interests
 
-- OSS contributing, NeoVim, Rust, TypeScript, React, IaC
-- Managing dotfiles and optimizing development environments  
-- Low-level development (shell, Lisp-like languages, etc.), static site generation, and improvements to the development experience
+- Low-level development (shell, Lisp-like languages, etc.)  
+- improvements to the development experience, Managing dotfiles and optimizing development environments, NeoVim + VSCode  
+- OSS contributing, Rust, TypeScript, React, IaC  
 
 ---
 
@@ -28,24 +29,24 @@ Contributes to web application development, cloud infrastructure, data analysis,
 
 #### Web Application Development
 
-- Built product using **React** and **REST APIs**
+- Built product using React and REST APIs
 - Designed reusable UI components and state management logic
 - Library updates, vulnerability information monitoring, and updating
 
 #### Cloud Infrastructure (AWS)
 
-- Designed and maintained infrastructure using **AWS** (e.g., VPC, EC2, Route 53, Lambda, S3)
+- Designed and maintained infrastructure using AWS (e.g., VPC, EC2, Route 53, Lambda, S3)
 - Automated deployments and environment setup with IaC
 - Improved monitoring and scalability
 
 #### Data Analytics
 
-- Built dashboards using **Amazon QuickSight**
+- Built dashboards using Amazon QuickSight
 - Propose visualizations that drive better business decisions
 
 #### Developer Tooling
 
-- Migrated build system to **pnpm**, reducing build times and CI costs
+- Migrated build system to pnpm, reducing build times and CI costs
 - Developed a script that analyzes JSDoc comments in React components and generates a static site.
 - Improved development and deployment workflows
 
@@ -63,31 +64,31 @@ Worked on various systems for clients across government, logistics, finance, and
 
 *Oct 2020 – Mar 2021*  
 - Scraping, XBRL parsing, data visualization, ML-based prediction  
-- **Python**, **Selenium**, **pandas**, **matplotlib**, **SQLite**
+- Python, Selenium, pandas, matplotlib, SQLite
 
 #### Government Point Management System  
 
 *Aug 2021 – Mar 2022*  
 - Participated in requirement definition and tech research  
-- **Java**, **Spring Batch**, **AWS**, **Python**, **Oracle DB**
+- Java, Spring Batch, AWS, Python, Oracle DB
 
 #### Port Storage Optimization System  
 
 *Apr 2022 – Mar 2023*  
 - Added UI and Web API to legacy logistics system  
-- **C#**, **.NET Core**, **VB6**, **Oracle DB**
+- C#, .NET Core, VB6, Oracle DB
 
 #### Attendance Management System  
 
 *Aug 2022 – Mar 2023*  
 - Designed architecture and led domain modeling  
-- **Java**, **Spring**, **Thymeleaf**, **MySQL**, **Bootstrap**
+- Java, Spring, Thymeleaf, MySQL, Bootstrap
 
 #### Low-code Platform Customization  
 
 *Sep 2022 – Jan 2023*  
 - Led internal team and reviewed scripts  
-- **JavaScript**
+- JavaScript
 
 </details>
 
