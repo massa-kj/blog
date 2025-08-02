@@ -41,7 +41,7 @@ const sortedTags = Array.from(tagMap.entries()).sort((a, b) =>
     {sortedTags.map(([tag, entries]) => (
       <a
         href={`${BASE_URL}${lang}/tags/${slugify(tag)}`}
-        class="tag-btn"
+        class="tag-btn hoverable-text"
       >
         {tag} <span class="">({entries.length})</span>
       </a>
