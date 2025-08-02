@@ -21,6 +21,15 @@
   --color-link: theme(colors.blue.700);            /* Links */
   --color-tag-bg: theme(colors.zinc.200);          /* Tag background */
   --color-tag-text: theme(colors.zinc.800);        /* Tag text */
+  --color-h2-bg: #f7faff;
+  --color-h2-text: #1a237e;
+  --color-h2-accent: #1976d2;
+  --color-h3-bg: #f7faff;
+  --color-h3-text: #00695c;
+  --color-h3-accent: #26a69a;
+  --color-h4-bg: #f7faff;
+  --color-h4-text: #004d40;
+  --color-h4-accent: #009688;
 
   /* Icon */
   --color-icon: theme(colors.blue.600);
@@ -75,6 +84,15 @@
   --color-tag-bg: theme(colors.zinc.700);           /* Tag background */
   --color-tag-text: theme(colors.zinc.100);         /* Tag text */
   --color-icon: theme(colors.blue.400);             /* Icon color */
+  --color-h2-bg: #263238;
+  --color-h2-text: #bbdefb;
+  --color-h2-accent: #90caf9;
+  --color-h3-bg: #263238;
+  --color-h3-text: #80cbc4;
+  --color-h3-accent: #4db6ac;
+  --color-h4-bg: #263238;
+  --color-h4-text: #b2ebf2;
+  --color-h4-accent: #80deea;
 }
 
 @layer base {
@@ -175,8 +193,51 @@
   }
 
   .my-prose {
-    @apply prose dark:prose-invert
-    prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
+    @apply prose dark:prose-invert;
+    prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl;
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--color-h2-text);
+      border-left: 4px solid var(--color-h2-accent);
+      padding-left: 0.7em;
+      padding-top: 0.1em;
+      padding-bottom: 0.1em;
+      background: var(--color-h2-bg);
+      border-radius: 3px;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--color-h3-text);
+      border-left: 4px solid var(--color-h3-accent);
+      padding-left: 0.7em;
+      padding-top: 0.1em;
+      padding-bottom: 0.1em;
+      background: var(--color-h3-bg);
+      border-radius: 3px;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-h4-text);
+      border-left: 4px solid var(--color-h4-accent);
+      padding-left: 0.7em;
+      padding-top: 0.1em;
+      padding-bottom: 0.1em;
+      background: var(--color-h4-bg);
+      border-radius: 3px;
+    }
+
+    details {
+      @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4;
+      summary {
+        @apply cursor-pointer font-semibold text-gray-900 dark:text-gray-100;
+      }
+    }
   }
 
   .footer {
