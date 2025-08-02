@@ -13,10 +13,10 @@ const currentPath = Astro.url.pathname;
   <a href=`${BASE_URL}${lang}/articles` class="site-title hoverable-text">
     My&nbsp;Site
   </a>
-  <nav class="flex-9 mt-4 flex flex-col gap-1 px-4">
+  <nav class="my-4 flex flex-col gap-1 px-4">
     <SitemapMenu currentPath={currentPath} />
   </nav>
-  <nav class="flex-1">
+  <nav class="my-4">
     <ExternalLinks />
   </nav>
 </div>
