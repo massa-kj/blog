@@ -7,12 +7,8 @@ const { toc = [] } = Astro.props;
     <h2 class="text-base font-semibold mb-3">Index</h2>
     <ul class="space-y-1 text-sm">
       {toc?.map(item => (
-        <li class={`ml-${(item.level - 2) * 4}`}>
-          <details class={item.level === 2 ? 'mb-1' : 'ml-2'} open>
-            <summary class="cursor-pointer hoverable-text">
-              <a href={`#${item.id}`}>{item.text}</a>
-            </summary>
-          </details>
+        <li class={`hoverable-text pl-0 ${item.level === 3 ? 'pl-2' : ''} ${item.level === 4 ? 'pl-4' : ''}`}>
+          <a href={`#${item.id}`}>{item.text}</a>
         </li>
       ))}
     </ul>
