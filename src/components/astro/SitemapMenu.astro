@@ -14,10 +14,10 @@ function isActive(path: string): boolean {
   {MENU_DEFINITION.map((item) => (
     <li class="group">
       <details class="" {item.children ? '' : 'open'}>
-        <summary class="flex items-center justify-between cursor-pointer hover:bg-gray-800 rounded">
+        <summary class="menu-list">
           <a
             href=`${BASE_URL}${lang}/${item.path.substring(1)}`
-            class={`flex-1 block px-4 py-2 rounded transition hover:bg-gray-700 ${isActive(item.path) ? 'text-indigo-400 font-semibold' : ''}`}
+            class={`menu-item flex-1 ${isActive(item.path) ? 'text-indigo-400 font-semibold' : ''}`}
           >
             {item.label}
           </a>
@@ -40,7 +40,7 @@ function isActive(path: string): boolean {
               <li>
                 <a
                   href=`${BASE_URL}${lang}/${child.path.substring(1)}`
-                  class={`block px-4 py-2 rounded transition hover:bg-gray-700 ${
+                  class={`menu-item ${
                     isActive(child.path) ? 'text-indigo-400 font-semibold' : ''
                   }`}
                 >

@@ -10,7 +10,7 @@
   /* Colors                  */
   /* ----------------------- */
   --color-bg: theme(colors.orange.100);               /* Global background */
-  --color-surface: theme(colors.white);            /* Main, cards, etc. */
+  --color-surface: theme(colors.orange.300);            /* Main, cards, etc. */
   --color-surface-variant: theme(colors.orange.200); /* Sidebar, lists, etc. */
   --color-border: theme(colors.zinc.200);          /* Borders */
   --color-primary: theme(colors.blue.600);         /* Accent (buttons, etc.) */
@@ -72,7 +72,7 @@
 /* ----------------------- */
 .dark {
   --color-bg: theme(colors.gray.900);               /* Global background */
-  --color-surface: theme(colors.zinc.900);          /* Main, cards, etc. */
+  --color-surface: theme(colors.gray.700);          /* Main, cards, etc. */
   --color-surface-variant: theme(colors.gray.800);  /* Sidebar, lists, etc. */
   --color-border: theme(colors.zinc.700);           /* Borders */
   --color-primary: theme(colors.blue.400);          /* Accent */
@@ -151,7 +151,7 @@
 
     .sidebar-right-content {
       @apply h-full overflow-y-auto p-4 border-l border-gray-800;
-      background-color: var(--color-bg);
+      background: var(--color-bg);
     }
   }
 
@@ -160,6 +160,7 @@
 
     .header-contents {
       @apply flex h-full items-center justify-between bg-gray-700 px-4 shadow;
+      background: var(--color-surface);
       /* color: var(--color-primary); */
       /* height: var(--header-height); */
       /* border-bottom: 1px solid var(--color-border); */
@@ -167,6 +168,17 @@
       /* top: 0; */
       /* z-index: 1000; */
     }
+  }
+
+  .menu-list {
+    @apply flex items-center justify-between cursor-pointer rounded
+  }
+
+  .menu-item {
+    @apply block px-4 py-2 rounded transition;
+  }
+  .menu-item:hover {
+    background: var(--color-surface);
   }
 
   .breadcrumbs {
@@ -264,7 +276,7 @@
     background-color: var(--color-bg);
   }
   .post-nav-btn-hoverable:hover {
-    background-color: var(--color-tag-bg);
+    background-color: var(--color-surface);
   }
 
   .card {
