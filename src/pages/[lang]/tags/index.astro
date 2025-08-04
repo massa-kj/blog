@@ -18,11 +18,12 @@ const [articles, cheatsheets] = await Promise.all([
   getCollection(TOP_MENU.cheatsheets),
 ]);
 const allEntries = [...articles, ...cheatsheets];
+const filteredEntries = allEntries.filter(entry => entry.id.startsWith(`${lang}/`));
 
 // Map { tag: article }
-const tagMap = new Map<string, typeof allEntries>();
+const tagMap = new Map<string, typeof filteredEntries>();
 
-for (const entry of allEntries) {
+for (const entry of filteredEntries) {
   const tags = entry.data.tags || [];
   for (const tag of tags) {
     const list = tagMap.get(tag) || [];
