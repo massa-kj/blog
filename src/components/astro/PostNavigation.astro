@@ -18,8 +18,8 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
       prev ? 'post-nav-btn-hoverable' : 'cursor-default'
     }`}
   >
-    <span class="text-xs group-hover:text-gray-200">OLDER</span>
-    <span class="mt-1 text-sm font-medium leading-snug break-words">
+    <span class="text-xs">OLDER</span>
+    <span class={`mt-1 text-sm font-medium leading-snug break-words ${prev?.title ? 'hoverable-text' : ''}`}>
       {prev?.title || '-'}
     </span>
   </a>
@@ -31,8 +31,8 @@ const { collection, prev, next }: { collection: string, prev?: PostLink; next?: 
       next ? 'post-nav-btn-hoverable' : 'cursor-default'
     } text-right`}
   >
-    <span class="text-xs group-hover:text-gray-200">NEWER</span>
-    <span class="mt-1 text-sm font-medium leading-snug break-words">
+    <span class="text-xs">NEWER</span>
+    <span class={`mt-1 text-sm font-medium leading-snug break-words ${next?.title ? 'hoverable-text' : ''}`}>
       {next?.title || '-'}
     </span>
   </a>

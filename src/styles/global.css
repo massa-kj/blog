@@ -9,25 +9,25 @@
   /* ----------------------- */
   /* Colors                  */
   /* ----------------------- */
-  --color-bg: theme(colors.orange.100);               /* Global background */
-  --color-surface: theme(colors.orange.300);            /* Main, cards, etc. */
-  --color-surface-variant: theme(colors.orange.200); /* Sidebar, lists, etc. */
-  --color-border: theme(colors.zinc.200);          /* Borders */
-  --color-primary: theme(colors.blue.600);         /* Accent (buttons, etc.) */
-  --color-primary-hover: theme(colors.blue.700);   /* On hover */
-  --color-secondary: theme(colors.teal.600);       /* Secondary */
-  --color-text: theme(colors.zinc.900);            /* Main text */
-  --color-muted: theme(colors.zinc.500);           /* Sub text */
-  --color-link: theme(colors.blue.700);            /* Links */
-  --color-tag-bg: theme(colors.zinc.200);          /* Tag background */
-  --color-tag-text: theme(colors.zinc.800);        /* Tag text */
-  --color-h2-bg: #f7faff;
+  --color-bg: theme(colors.zinc.50);                  /* Global background */
+  --color-surface: theme(colors.white);               /* Main, cards, etc. */
+  --color-surface-variant: theme(colors.zinc.300);    /* Sidebar, lists, etc. */
+  --color-border: theme(colors.zinc.200);             /* Borders */
+  --color-primary: theme(colors.emerald.600);         /* Accent (buttons, etc.) */
+  --color-primary-hover: theme(colors.emerald.700);   /* On hover */
+  --color-secondary: theme(colors.teal.500);          /* Secondary */
+  --color-text: theme(colors.zinc.900);               /* Main text */
+  --color-muted: theme(colors.zinc.500);              /* Sub text */
+  --color-link: theme(colors.emerald.700);            /* Links */
+  --color-tag-bg: theme(colors.zinc.200);             /* Tag background */
+  --color-tag-text: theme(colors.zinc.800);           /* Tag text */
+  --color-h2-bg: theme(colors.gray.200);
   --color-h2-text: #1a237e;
   --color-h2-accent: #1976d2;
-  --color-h3-bg: #f7faff;
+  --color-h3-bg: theme(colors.gray.200);
   --color-h3-text: #00695c;
   --color-h3-accent: #26a69a;
-  --color-h4-bg: #f7faff;
+  --color-h4-bg: theme(colors.gray.200);
   --color-h4-text: #004d40;
   --color-h4-accent: #009688;
 
@@ -71,28 +71,27 @@
 /* Dark Mode               */
 /* ----------------------- */
 .dark {
-  --color-bg: theme(colors.gray.900);               /* Global background */
-  --color-surface: theme(colors.gray.700);          /* Main, cards, etc. */
-  --color-surface-variant: theme(colors.gray.800);  /* Sidebar, lists, etc. */
-  --color-border: theme(colors.zinc.700);           /* Borders */
-  --color-primary: theme(colors.blue.400);          /* Accent */
-  --color-primary-hover: theme(colors.blue.300);    /* On hover */
-  --color-secondary: theme(colors.teal.400);        /* Secondary */
-  --color-text: theme(colors.gray.100);             /* Main text */
-  --color-muted: theme(colors.zinc.400);            /* Sub text */
-  --color-link: theme(colors.blue.300);             /* Links */
-  --color-tag-bg: theme(colors.zinc.700);           /* Tag background */
-  --color-tag-text: theme(colors.zinc.100);         /* Tag text */
-  --color-icon: theme(colors.blue.400);             /* Icon color */
-  --color-h2-bg: #263238;
-  --color-h2-text: #bbdefb;
-  --color-h2-accent: #90caf9;
-  --color-h3-bg: #263238;
-  --color-h3-text: #80cbc4;
+  --color-bg: theme(colors.zinc.900);
+  --color-surface: theme(colors.zinc.800);
+  --color-surface-variant: theme(colors.zinc.700);
+  --color-border: theme(colors.zinc.700);
+  --color-primary: theme(colors.emerald.400);
+  --color-primary-hover: theme(colors.emerald.300);
+  --color-secondary: theme(colors.teal.300);
+  --color-text: theme(colors.zinc.100);
+  --color-muted: theme(colors.zinc.400);
+  --color-link: theme(colors.emerald.300);
+  --color-tag-bg: theme(colors.zinc.700);
+  --color-tag-text: theme(colors.zinc.100);
+  --color-h2-bg: theme(colors.gray.800);
+  --color-h2-text: #a0daf9;
+  --color-h2-accent: #64b5f6;
+  --color-h3-bg: theme(colors.gray.800);
+  --color-h3-text: #a0ebe4;
   --color-h3-accent: #4db6ac;
-  --color-h4-bg: #263238;
-  --color-h4-text: #b2ebf2;
-  --color-h4-accent: #80deea;
+  --color-h4-bg: theme(colors.gray.800);
+  --color-h4-text: #c2efeb;
+  --color-h4-accent: #4dd0e1;
 }
 
 @layer base {
@@ -123,7 +122,7 @@
 
     .sidebar-left-content {
       @apply flex flex-col h-full;
-      background-color: var(--color-surface-variant);
+      background: var(--color-surface-variant);
     }
     .sidebar-left-toggle {
       @apply absolute -top-20 opacity-0;
@@ -227,7 +226,7 @@
 
   .tag-btn {
     @apply inline-block rounded-md border px-2 py-1 transition;
-    background-color: var(--color-surface-variant);
+    background-color: var(--color-tag-bg);
     border-color: var(--color-border);
   }
   .tag-btn:hover {
@@ -240,7 +239,7 @@
     background-color: var(--color-bg);
   }
   .post-nav-btn-hoverable:hover {
-    background-color: var(--color-surface);
+    background-color: var(--color-surface-variant);
   }
 
   .card {
