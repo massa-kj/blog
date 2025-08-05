@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentContainer from '../../layouts/ContentContainer.astro';
 import { getCollection } from 'astro:content';
+import { generateToc } from '../../utils/astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('singlepages');
@@ -19,9 +20,10 @@ const page = Astro.props;
 const { render } = page;
 
 const { Content } = await render();
+const toc = generateToc(page.rendered.metadata.headings);
 ---
 
-<BaseLayout title="About">
+<BaseLayout title="About" toc={toc}>
   <ContentContainer>
 	<Content />
   </ContentContainer>

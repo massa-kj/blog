@@ -30,6 +30,8 @@ const entries = allEntries
         <ArticleCard
           key={slug}
           title={data.title}
+          description={data.summary}
+          pubDate={data.date}
           collection={collection}
           slug={slug}
         />
