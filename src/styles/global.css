@@ -1,3 +1,6 @@
+/* ----------------------- */
+/* Imports & Plugins       */
+/* ----------------------- */
 @import "tailwindcss";
 @import "tailwindcss" source('./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}');
 @plugin '@tailwindcss/typography';
@@ -5,10 +8,11 @@
 /* The Tailwind plugin now applies utility classes with the `dark:` prefix to elements under the `.dark` class. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ----------------------- */
+/* Theme Variables         */
+/* ----------------------- */
 @theme {
-  /* ----------------------- */
-  /* Colors                  */
-  /* ----------------------- */
+  /* Colors */
   --color-bg: theme(colors.zinc.50);                  /* Global background */
   --color-surface: theme(colors.white);               /* Main, cards, etc. */
   --color-surface-variant: theme(colors.zinc.300);    /* Sidebar, lists, etc. */
@@ -34,15 +38,11 @@
   /* Icon */
   --color-icon: theme(colors.blue.600);
 
-  /* ----------------------- */
-  /* Font                    */
-  /* ----------------------- */
+  /* Font */
   /* --font-sans: theme(fontFamily.sans); */
   /* --font-mono: theme(fontFamily.mono); */
 
-  /* ----------------------- */
-  /* Spacing                 */
-  /* ----------------------- */
+  /* Spacing */
   --space-xs: 0.25rem;   /* 4px */
   --space-sm: 0.5rem;    /* 8px */
   --space-md: 1rem;      /* 16px */
@@ -57,9 +57,7 @@
   --spacing-left-sidebar-md: 22rem;
   --spacing-right-sidebar: 16rem;
 
-  /* ----------------------- */
-  /* Border, Shadow          */
-  /* ----------------------- */
+  /* Border, Shadow */
   --radius-sm: 0.25rem;   /* 4px */
   --radius-md: 0.5rem;    /* 8px */
   --radius-lg: 1rem;      /* 16px */
@@ -67,9 +65,7 @@
   --shadow-md: 0 4px 12px 0 rgb(0 0 0 / 0.08);
 }
 
-/* ----------------------- */
-/* Dark Mode               */
-/* ----------------------- */
+/* Dark Mode */
 .dark {
   --color-bg: theme(colors.zinc.900);
   --color-surface: theme(colors.zinc.800);
@@ -94,6 +90,9 @@
   --color-h4-accent: #4dd0e1;
 }
 
+/* ----------------------- */
+/* Base Layer              */
+/* ----------------------- */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -120,6 +119,9 @@
   }
 }
 
+/* ----------------------- */
+/* Components Layer        */
+/* ----------------------- */
 @layer components {
   .site-title {
     @apply flex h-header items-center px-6 text-2xl font-extrabold;
@@ -267,7 +269,12 @@
   .page-title {
     @apply text-3xl font-bold mb-2 break-words
   }
+}
 
+/* ----------------------- */
+/* Utilities Layer         */
+/* ----------------------- */
+@layer utilities {
   .hoverable-text {
     @apply transition
   }
