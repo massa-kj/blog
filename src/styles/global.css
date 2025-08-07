@@ -123,10 +123,25 @@
 /* Components Layer        */
 /* ----------------------- */
 @layer components {
-  .site-title {
-    @apply flex h-header items-center px-6 text-2xl font-extrabold;
+  /* ----------------------- */
+  /* Header Components       */
+  /* ----------------------- */
+  .header {
+    @apply fixed inset-x-0 top-0 z-10 h-header transition-transform duration-300 peer-checked:translate-x-left-sidebar md:pl-left-sidebar-md md:peer-checked:translate-x-0;
+
+    .header-contents {
+      @apply flex h-full items-center justify-between bg-gray-700 px-4 shadow;
+      background: var(--color-surface);
+    }
   }
 
+  .breadcrumbs {
+    @apply hidden w-full items-center justify-between md:flex
+  }
+
+  /* ----------------------- */
+  /* Left-Sidebar Components */
+  /* ----------------------- */
   .sidebar-left {
     @apply fixed left-0 top-0 z-20 h-screen w-left-sidebar -translate-x-full transform transition-transform duration-300 peer-checked:translate-x-0 md:w-left-sidebar-md md:translate-x-0;
 
@@ -139,6 +154,24 @@
     }
   }
 
+  .site-title {
+    @apply flex h-header items-center px-6 text-2xl font-extrabold;
+  }
+
+  /* Navigation Menu */
+  .menu-list {
+    @apply flex items-center justify-between cursor-pointer rounded
+  }
+  .menu-item {
+    @apply block px-4 py-2 rounded transition;
+  }
+  .menu-item:hover {
+    background: var(--color-surface);
+  }
+
+  /* ------------------------ */
+  /* Right-Sidebar Components */
+  /* ------------------------ */
   .sidebar-right {
     @apply hidden xl:block w-64 h-full fixed right-0 top-16;
 
@@ -148,30 +181,16 @@
     }
   }
 
-  .header {
-    @apply fixed inset-x-0 top-0 z-10 h-header transition-transform duration-300 peer-checked:translate-x-left-sidebar md:pl-left-sidebar-md md:peer-checked:translate-x-0;
-
-    .header-contents {
-      @apply flex h-full items-center justify-between bg-gray-700 px-4 shadow;
-      background: var(--color-surface);
-    }
+  /* ----------------------- */
+  /* Footer Components       */
+  /* ----------------------- */
+  .footer {
+    @apply p-4 mt-12 text-center text-sm;
   }
 
-  .menu-list {
-    @apply flex items-center justify-between cursor-pointer rounded
-  }
-
-  .menu-item {
-    @apply block px-4 py-2 rounded transition;
-  }
-  .menu-item:hover {
-    background: var(--color-surface);
-  }
-
-  .breadcrumbs {
-    @apply hidden w-full items-center justify-between md:flex
-  }
-
+  /* ----------------------- */
+  /* Main Area Components    */
+  /* ----------------------- */
   .main-area {
     @apply flex flex-col min-h-screen
       pt-header xl:mr-right-sidebar transition-transform duration-300 peer-checked:translate-x-left-sidebar
@@ -181,6 +200,11 @@
     @apply flex-1 w-full max-w-3xl mx-auto px-6 py-8;
   }
 
+  .page-title {
+    @apply text-3xl font-bold mb-2 break-words
+  }
+
+  /* Contents */
   .my-prose {
     @apply prose dark:prose-invert;
     prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl;
@@ -230,20 +254,7 @@
     }
   }
 
-  .footer {
-    @apply p-4 mt-12 text-center text-sm;
-  }
-
-  .tag-btn {
-    @apply inline-block rounded-md border px-2 py-1 transition;
-    background-color: var(--color-tag-bg);
-    border-color: var(--color-border);
-  }
-  .tag-btn:hover {
-    background-color: var(--color-tag-bg);
-    border-color: var(--color-primary-hover);
-  }
-
+  /* Navigation Buttons */
   .post-nav-btn {
     @apply flex flex-col justify-center border p-4 border-gray-700 transition;
     background-color: var(--color-bg);
@@ -252,6 +263,9 @@
     background-color: var(--color-surface-variant);
   }
 
+  /* ----------------------- */
+  /* Common Components       */
+  /* ----------------------- */
   .card {
     @apply rounded-lg block p-6 border transition;
     background-color: var(--color-surface-variant);
@@ -266,8 +280,14 @@
     border-color: var(--color-primary);
   }
 
-  .page-title {
-    @apply text-3xl font-bold mb-2 break-words
+  .tag-btn {
+    @apply inline-block rounded-md border px-2 py-1 transition;
+    background-color: var(--color-tag-bg);
+    border-color: var(--color-border);
+  }
+  .tag-btn:hover {
+    background-color: var(--color-tag-bg);
+    border-color: var(--color-primary-hover);
   }
 }
 
