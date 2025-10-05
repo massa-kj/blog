@@ -40,3 +40,13 @@ pnpm dev
 - My first contributing to VSCode
 - AWS QuickSight dashboards explained
 
+## Development Notes
+
+- To add a new section "XXXXX", the following files need to be updated:
+  - `src/content/XXXXX/**/*.md`
+  - `src/content/config.ts`
+  - `src/pages/[lang]/XXXXX.astro`
+  - `src/pages/[lang]/XXXXX/*.astro`
+  - `src/pages/[lang]/tags/[tag].astro`
+  - `src/pages/[lang]/tags/index.astro`
+  - `src/utils/share.ts`

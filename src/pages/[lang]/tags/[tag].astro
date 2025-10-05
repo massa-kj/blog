@@ -5,12 +5,13 @@ import { TOP_MENU } from '../../../utils/share';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const [articles, cheatsheets] = await Promise.all([
+  const [articles, cheatsheets, notes] = await Promise.all([
     getCollection(TOP_MENU.articles),
     getCollection(TOP_MENU.cheatsheets),
+    getCollection(TOP_MENU.notes),
   ]);
 
-  const allEntries = [...articles, ...cheatsheets];
+  const allEntries = [...articles, ...cheatsheets, ...notes];
 
   const tagLangPairs = allEntries.flatMap(entry =>
     (entry.data.tags || []).map(tag => ({
@@ -29,12 +30,13 @@ export async function getStaticPaths() {
 }
 
 const { lang, tag } = Astro.params;
-const [articles, cheatsheets] = await Promise.all([
+const [articles, cheatsheets, notes] = await Promise.all([
   getCollection(TOP_MENU.articles),
   getCollection(TOP_MENU.cheatsheets),
+  getCollection(TOP_MENU.notes),
 ]);
 
-const allEntries = [...articles, ...cheatsheets].filter(entry => entry.slug.startsWith(lang));
+const allEntries = [...articles, ...cheatsheets, ...notes].filter(entry => entry.slug.startsWith(lang));
 
 const filtered = allEntries.filter(entry =>
   (entry.data.tags || []).map(t => t.toLowerCase()).includes(tag.toLowerCase()),

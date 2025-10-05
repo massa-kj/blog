@@ -5,7 +5,7 @@ const articles = defineCollection({
     title: z.string(),
     date: z.string().transform(str => new Date(str)),
     tags: z.array(z.string()).optional(),
-	summary: z.string().optional(),
+  summary: z.string().optional(),
   }),
 });
 
@@ -17,6 +17,15 @@ const cheatsheets = defineCollection({
   }),
 });
 
+const notes = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    date: z.string().transform(str => new Date(str)),
+    tags: z.array(z.string()).optional(),
+  summary: z.string().optional(),
+  }),
+});
+
 const singlepages = defineCollection({
   schema: z.object({
   }),
@@ -25,5 +34,6 @@ const singlepages = defineCollection({
 export const collections = {
   articles,
   cheatsheets,
-	singlepages,
+  notes,
+  singlepages,
 };

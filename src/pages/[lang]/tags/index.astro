@@ -13,11 +13,12 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 
-const [articles, cheatsheets] = await Promise.all([
+const [articles, cheatsheets, notes] = await Promise.all([
   getCollection(TOP_MENU.articles),
   getCollection(TOP_MENU.cheatsheets),
+  getCollection(TOP_MENU.notes),
 ]);
-const allEntries = [...articles, ...cheatsheets];
+const allEntries = [...articles, ...cheatsheets, ...notes];
 const filteredEntries = allEntries.filter(entry => entry.id.startsWith(`${lang}/`));
 
 // Map { tag: article }

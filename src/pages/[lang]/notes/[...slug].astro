@@ -2,10 +2,12 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ArticlePage from '../../../layouts/ArticlePage.astro';
 import { TOP_MENU } from '../../../utils/share';
+import { generateToc } from '../../../utils/astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const pages = await getCollection(TOP_MENU.cheatsheets);
+  const pages = await getCollection(TOP_MENU.notes);
+  console.log(pages)
 
   const paths = pages.map(page => {
     const [lang, ...slug] = page.slug.split('/');
@@ -15,10 +17,10 @@ export async function getStaticPaths() {
   return paths;
 }
 
-// const { lang, slug } = Astro.params;
 const page = Astro.props;
+const toc = generateToc(page.rendered.metadata.headings);
 ---
 
-<BaseLayout title="Cheat Sheets">
+<BaseLayout title="Notes" toc={toc} >
   <ArticlePage content={page} />
 </BaseLayout>
