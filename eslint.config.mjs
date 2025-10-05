@@ -27,6 +27,7 @@ const commonRules = {
 
 export default [
   js.configs.recommended,
+  ...tseslint.configs.recommended,
   ...astro.configs.recommended,
 
   {
@@ -66,6 +67,11 @@ export default [
         },
       },
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
     rules: {
       ...react.configs.recommended.rules,
       ...commonRules,
@@ -77,6 +83,7 @@ export default [
     languageOptions: {
       parser: astro.parser,
       parserOptions: {
+        parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
       },
     },

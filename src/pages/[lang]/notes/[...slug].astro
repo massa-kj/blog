@@ -7,7 +7,6 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const pages = await getCollection(TOP_MENU.notes);
-  console.log(pages)
 
   const paths = pages.map(page => {
     const [lang, ...slug] = page.slug.split('/');
